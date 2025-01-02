@@ -8,10 +8,10 @@
 /// * Edition: Advanced
 ///
 /// @author Rei Vilo
-/// @date 21 Nov 2024
-/// @version 900
+/// @date 21 Jan 2025
+/// @version 902
 ///
-/// @copyright (c) Rei Vilo, 2010-2024
+/// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
 ///
@@ -37,34 +37,34 @@
 // SDK
 #include "hV_HAL_Peripherals.h"
 
-#if (hV_HAL_PERIPHERALS_RELEASE < 900)
-#error Required hV_HAL_PERIPHERALS_RELEASE 900
+#if (hV_HAL_PERIPHERALS_RELEASE < 902)
+#error Required hV_HAL_PERIPHERALS_RELEASE 902
 #endif // hV_HAL_PERIPHERALS_RELEASE
 
 // Boards
 #include "hV_List_Boards.h"
 
-#if (hV_LIST_BOARDS_RELEASE < 900)
-#error Required hV_LIST_BOARDS_RELEASE 900
+#if (hV_LIST_BOARDS_RELEASE < 902)
+#error Required hV_LIST_BOARDS_RELEASE 902
 #endif // hV_LIST_BOARDS_RELEASE
 
 // Constants
 #include "hV_List_Constants.h"
 
-#if (hV_LIST_CONSTANTS_RELEASE < 900)
-#error Required hV_LIST_CONSTANTS_RELEASE 900
+#if (hV_LIST_CONSTANTS_RELEASE < 902)
+#error Required hV_LIST_CONSTANTS_RELEASE 902
 #endif // hV_LIST_CONSTANTS_RELEASE
 
 #ifndef hV_BOARD_RELEASE
 ///
 /// @brief Library release number
 ///
-#define hV_BOARD_RELEASE 900
+#define hV_BOARD_RELEASE 902
 
 // Objects
 //
 ///
-/// @brief Class for Pervasive Displays EXT3, EXT3.1 and EXT3-Touch, EXT4 boards
+/// @brief Class for Pervasive Displays EXT3, EXT3.1 and EXT3-Touch, EXT4 extension boards
 /// @details Functions for board
 /// * GPIO
 /// * SPI for LCD and external Flash and SRAM memory

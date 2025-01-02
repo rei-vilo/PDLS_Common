@@ -6,10 +6,10 @@
 /// @n Based on highView technology
 ///
 /// @author Rei Vilo
-/// @date 21 Nov 2024
-/// @version 900
+/// @date 21 Jan 2025
+/// @version 902
 ///
-/// @copyright (c) Rei Vilo, 2010-2024
+/// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
 ///
@@ -36,20 +36,20 @@
 ///
 /// @brief Release
 ///
-#define hV_LIST_TYPES_RELEASE 900
+#define hV_LIST_TYPES_RELEASE 902
 
 // SDK
 #include "hV_HAL_Peripherals.h"
 
-#if (hV_HAL_PERIPHERALS_RELEASE < 900)
-#error Required hV_HAL_PERIPHERALS_RELEASE 900
+#if (hV_HAL_PERIPHERALS_RELEASE < 902)
+#error Required hV_HAL_PERIPHERALS_RELEASE 902
 #endif // hV_HAL_PERIPHERALS_RELEASE
 
 // Options
 #include "hV_List_Options.h"
 
-#if (hV_LIST_OPTIONS_RELEASE < 900)
-#error Required hV_LIST_OPTIONS_RELEASE 900
+#if (hV_LIST_OPTIONS_RELEASE < 902)
+#error Required hV_LIST_OPTIONS_RELEASE 902
 #endif // hV_LIST_OPTIONS_RELEASE
 
 ///

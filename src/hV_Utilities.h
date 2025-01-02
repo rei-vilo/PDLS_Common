@@ -6,10 +6,10 @@
 /// @n Based on highView technology
 ///
 /// @author Rei Vilo
-/// @date 21 Nov 2024
-/// @version 900
+/// @date 21 Jan 2025
+/// @version 902
 ///
-/// @copyright (c) Rei Vilo, 2010-2024
+/// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
 ///
@@ -35,36 +35,36 @@
 // SDK
 #include "hV_HAL_Peripherals.h"
 
-#if (hV_HAL_PERIPHERALS_RELEASE < 900)
-#error Required hV_HAL_PERIPHERALS_RELEASE 900
+#if (hV_HAL_PERIPHERALS_RELEASE < 902)
+#error Required hV_HAL_PERIPHERALS_RELEASE 902
 #endif // hV_HAL_PERIPHERALS_RELEASE
 
 // Boards
 #include "hV_List_Boards.h"
 
-#if (hV_LIST_BOARDS_RELEASE < 900)
-#error Required hV_LIST_BOARDS_RELEASE 900
+#if (hV_LIST_BOARDS_RELEASE < 902)
+#error Required hV_LIST_BOARDS_RELEASE 902
 #endif // hV_LIST_BOARDS_RELEASE
 
 // Types
 #include "hV_List_Types.h"
 
-#if (hV_LIST_TYPES_RELEASE < 900)
-#error Required hV_LIST_TYPES_RELEASE 900
+#if (hV_LIST_TYPES_RELEASE < 902)
+#error Required hV_LIST_TYPES_RELEASE 902
 #endif // hV_LIST_TYPES_RELEASE
 
 // Constants
 #include "hV_List_Constants.h"
 
-#if (hV_LIST_CONSTANTS_RELEASE < 900)
-#error Required hV_LIST_CONSTANTS_RELEASE 900
+#if (hV_LIST_CONSTANTS_RELEASE < 902)
+#error Required hV_LIST_CONSTANTS_RELEASE 902
 #endif // hV_LIST_CONSTANTS_RELEASE
 
 #ifndef hV_UTILITIES_RELEASE
 ///
 /// @brief Library release number
 ///
-#define hV_UTILITIES_RELEASE 900
+#define hV_UTILITIES_RELEASE 902
 
 ///
 /// @name Orientation constants
@@ -120,28 +120,6 @@ STRING_TYPE formatString(const char * format, ...);
 /// @brief Swap and miscellaneous functions
 ///
 /// @{
-
-// ///
-// /// @brief Swap number
-// /// @param x first number
-// /// @param y second number
-// ///
-// /// @note Macro more robust than template for some platforms
-// ///
-// /// @code
-// /// template <typename T> T
-// /// swap(T &x, T &y)
-// /// {
-// ///     T w = x;
-// ///     x = y;
-// ///     y = w;
-// /// }
-// /// @endcode
-// ///
-// /// @note `__typeof__` recommended over `typeof`
-// ///
-// #define swap(x, y) do { __typeof__(x) WORK = x; x = y; y = WORK; } while (0)
-
 ///
 /// @brief Check value in range
 /// @param value value to check
@@ -153,7 +131,21 @@ STRING_TYPE formatString(const char * format, ...);
 /// * if value > valueMax, return valueMax
 /// Otherwise, if valueMin > valueMax, valueMin and valueMax are swapped
 ///
-uint16_t checkRange(uint16_t value, uint16_t valueMin, uint16_t valueMax);
+template<typename T>
+T checkRange(T value, T valueMin, T valueMax)
+{
+    T localMin = (valueMin < valueMax) ? valueMin : valueMax;
+    T localMax = (valueMin > valueMax) ? valueMin : valueMax;
+
+    // return min(max(localMin, value), localMax);
+    T result = value;
+
+    result = (localMin > result) ? localMin : result;
+    result = (localMax < result) ? localMax : result;
+
+    return result;
+};
+
 /// @}
 
 #endif // hV_UTILITIES_RELEASE

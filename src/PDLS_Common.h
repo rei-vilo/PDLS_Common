@@ -6,10 +6,10 @@
 /// @n Based on highView technology
 ///
 /// @author Rei Vilo
-/// @date 21 Nov 2024
-/// @version 900
+/// @date 21 Jan 2025
+/// @version 902
 ///
-/// @copyright (c) Rei Vilo, 2010-2024
+/// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
 ///
@@ -36,7 +36,7 @@
 ///
 /// @brief Library release number
 ///
-#define PDLS_COMMON_RELEASE 900
+#define PDLS_COMMON_RELEASE 902
 
 ///
 /// @brief SDK
@@ -45,21 +45,21 @@
 ///
 #include "hV_HAL_Peripherals.h"
 
-#if (hV_HAL_PERIPHERALS_RELEASE < 900)
-#error Required hV_HAL_PERIPHERALS_RELEASE 900
+#if (hV_HAL_PERIPHERALS_RELEASE < 902)
+#error Required hV_HAL_PERIPHERALS_RELEASE 902
 #endif // hV_HAL_PERIPHERALS_RELEASE
 
 #include "hV_Configuration.h"
 
-#if (hV_HAL_PERIPHERALS_RELEASE < 900)
-#error Required hV_HAL_PERIPHERALS_RELEASE 900
+#if (hV_HAL_PERIPHERALS_RELEASE < 902)
+#error Required hV_HAL_PERIPHERALS_RELEASE 902
 #endif // hV_HAL_PERIPHERALS_RELEASE
 
 // Utilities
 #include "hV_Utilities.h"
 
-#if (hV_UTILITIES_RELEASE < 900)
-#error Required hV_UTILITIES_RELEASE 900
+#if (hV_UTILITIES_RELEASE < 902)
+#error Required hV_UTILITIES_RELEASE 902
 #endif // hV_UTILITIES_RELEASE
 
 #endif // PDLS_COMMON_RELEASE

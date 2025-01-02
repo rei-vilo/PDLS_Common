@@ -58,7 +58,7 @@ void Driver_EPD_Virtual::updateFast(FRAMEBUFFER_CONST_TYPE frameM1, FRAMEBUFFER_
 //     ;
 // }
 //
-// void Driver_EPD_Virtual::COG_sendImageData()
+// void Driver_EPD_Virtual::COG_sendImageDataNormal()
 // {
 //     ;
 // }
@@ -73,19 +73,20 @@ void Driver_EPD_Virtual::updateFast(FRAMEBUFFER_CONST_TYPE frameM1, FRAMEBUFFER_
 //     ;
 // }
 
-#if (TOUCH_MODE != USE_TOUCH_NONE)
+// void Driver_EPD_Virtual::d_beginTouch()
+// {
+//     ;
+// }
 
 void Driver_EPD_Virtual::d_getRawTouch(touch_t & touch)
 {
-    ;
+    touch = { 0, 0, 0, 0};
 }
 
 bool Driver_EPD_Virtual::d_getInterruptTouch()
 {
     return true;
 }
-
-#endif // TOUCH_MODE
 
 STRING_CONST_TYPE Driver_EPD_Virtual::reference()
 {

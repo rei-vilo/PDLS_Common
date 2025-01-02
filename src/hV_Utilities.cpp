@@ -8,7 +8,7 @@
 //
 // Created by Rei Vilo, 01 Jun 2013
 //
-// Copyright (c) Rei Vilo, 2010-2024
+// Copyright (c) Rei Vilo, 2010-2025
 // Licence All rights reserved
 //
 // See hV_Utilities.h for references
@@ -108,13 +108,5 @@ STRING_TYPE utf2iso(STRING_TYPE s)
     return bufferOut;
 
 #endif // STRING_MODE
-}
-
-uint16_t checkRange(uint16_t value, uint16_t valueMin, uint16_t valueMax)
-{
-    uint16_t localMin = hV_HAL_min(valueMin, valueMax);
-    uint16_t localMax = hV_HAL_max(valueMin, valueMax);
-
-    return hV_HAL_min(hV_HAL_max(localMin, value), localMax);
 }
 

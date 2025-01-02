@@ -19,10 +19,10 @@
 /// * 13. Select EXT board
 ///
 /// @author Rei Vilo
-/// @date 21 Nov 2024
-/// @version 900
+/// @date 21 Jan 2025
+/// @version 902
 ///
-/// @copyright (c) Rei Vilo, 2010-2024
+/// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
 ///
@@ -49,7 +49,7 @@
 ///
 /// @brief Release
 ///
-#define hV_LIST_OPTIONS_RELEASE 900
+#define hV_LIST_OPTIONS_RELEASE 902
 
 ///
 /// @name 1- List of supported Pervasive Displays screens
@@ -105,7 +105,7 @@
 /// @note Corresponding type defined at hV_List_Types.h
 ///
 /// @{
-/// @note Advanced edition only
+/// @note Commercial edition only
 /// @}
 
 ///
@@ -122,7 +122,7 @@
 /// @warning Issues with virtual function on arm-none-eabi-g++ 4.9.3: use USE_hV_SCREEN_SELF instead.
 ///
 /// @{
-/// @note Advanced edition only
+/// @note Commercial edition only
 /// @}
 
 ///
@@ -136,10 +136,7 @@
 /// @note Touch uses I2C and polling over interrupt
 ///
 /// @{
-#define USE_TOUCH_NONE 0 ///< Do not use touch
-#define USE_TOUCH_YES 1 ///< Use touch
-
-#define TOUCH_MODE USE_TOUCH_NONE ///< Selected option
+/// @note Commercial edition only
 /// @}
 
 ///
@@ -150,7 +147,7 @@
 /// * Viewer edition: no haptic feedback
 ///
 /// @{
-/// @note Advanced edition only
+/// @note Commercial edition only
 /// @}
 
 ///
@@ -161,7 +158,7 @@
 /// * Viewer edition: no expander
 ///
 /// @{
-/// @note Advanced edition only
+/// @note Commercial edition only
 /// @}
 
 ///
@@ -187,7 +184,7 @@
 /// * Viewer edition: option
 ///
 /// @{
-/// @note Advanced edition only
+/// @note Advanced and Viewer editions only
 /// @}
 
 ///
@@ -198,7 +195,7 @@
 /// * Viewer edition: option
 ///
 /// @{
-/// @note Advanced edition only
+/// @note Advanced and Viewer editions only
 /// @}
 
 ///
@@ -211,6 +208,7 @@
 /// @note Corresponding boards defined at hV_List_Boards.h
 ///
 /// @{
+#define BOARD_EXT2 2 ///< EXT2 board
 #define BOARD_EXT3 3 ///< EXT3 and EXT3.1 boards
 #define BOARD_EXT4 4 ///< EXT4 board
 

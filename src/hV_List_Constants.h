@@ -6,10 +6,10 @@
 /// @n Based on highView technology
 ///
 /// @author Rei Vilo
-/// @date 21 Nov 2024
-/// @version 900
+/// @date 21 Jan 2025
+/// @version 902
 ///
-/// @copyright (c) Rei Vilo, 2010-2024
+/// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
 ///
@@ -39,7 +39,7 @@
 ///
 /// @brief Release
 ///
-#define hV_LIST_CONSTANTS_RELEASE 900
+#define hV_LIST_CONSTANTS_RELEASE 902
 
 ///
 /// @name Touch events
@@ -248,8 +248,8 @@
 /// @name Modes for power profile
 /// @note Numbers are sequential and exclusive
 /// @{
-#define POWER_MODE_AUTO 0x00 ///< Managed by the screen library
-#define POWER_MODE_MANUAL 0x01 ///< Managed by the application code
+#define POWER_MODE_MANUAL 0x00 ///< Managed by the application code
+#define POWER_MODE_AUTO 0x01 ///< Managed by the screen library
 /// @}
 
 ///

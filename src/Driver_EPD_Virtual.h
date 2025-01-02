@@ -1,15 +1,15 @@
 ///
 /// @file Driver_EPD_Virtual.h
-/// @brief Generic driver class library
+/// @brief Generic driver class library - Basic edition
 ///
 /// @details Project Pervasive Displays Library Suite
 /// @n Based on highView technology
 ///
 /// @author Rei Vilo
-/// @date 21 Nov 2024
-/// @version 900
+/// @date 21 Jan 2025
+/// @version 902
 ///
-/// @copyright (c) Rei Vilo, 2010-2024
+/// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
 ///
@@ -35,28 +35,28 @@
 // SDK and configuration
 #include "PDLS_Common.h"
 
-#if (PDLS_COMMON_RELEASE < 900)
-#error Required PDLS_COMMON_RELEASE 900
+#if (PDLS_COMMON_RELEASE < 902)
+#error Required PDLS_COMMON_RELEASE 902
 #endif // PDLS_COMMON_RELEASE
 
 #ifndef hV_DRIVER_ALL_RELEASE
 ///
 /// @brief Library release number
 ///
-#define hV_DRIVER_ALL_RELEASE 900
+#define hV_DRIVER_ALL_RELEASE 902
 
 // Board
 #include "hV_Board.h"
 
-#if (hV_BOARD_RELEASE < 900)
-#error Required hV_BOARD_RELEASE 900
+#if (hV_BOARD_RELEASE < 902)
+#error Required hV_BOARD_RELEASE 902
 #endif // hV_BOARD_RELEASE
 
 // Utilities
 #include "hV_Utilities.h"
 
-#if (hV_UTILITIES_RELEASE < 900)
-#error Required hV_UTILITIES_RELEASE 900
+#if (hV_UTILITIES_RELEASE < 902)
+#error Required hV_UTILITIES_RELEASE 902
 #endif // hV_UTILITIES_RELEASE
 
 ///
@@ -184,22 +184,19 @@ class Driver_EPD_Virtual: public hV_Board
     //
     // === Touch section
     //
-#if (TOUCH_MODE != USE_TOUCH_NONE)
-
-    virtual void d_getRawTouch(touch_t & touch); // compulsory
-    virtual bool d_getInterruptTouch(); // compulsory
-
-#endif // TOUCH_MODE
+    virtual void d_getRawTouch(touch_t &touch);
+    virtual bool d_getInterruptTouch();
     //
     // === End of Touch section
     //
 
   private:
+    // virtual void d_beginTouch();
 
     // void COG_reset();
     // void COG_getDataOTP();
     // void COG_initial();
-    // void COG_sendImageData();
+    // void COG_sendImageDataNormal();
     // void COG_sendParameters();
     // void COG_startDCDC();
     // void COG_update();
