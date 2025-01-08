@@ -39,11 +39,11 @@
 #error Required PDLS_COMMON_RELEASE 902
 #endif // PDLS_COMMON_RELEASE
 
-#ifndef DRIVER_EPD_VIRTAL_RELEASE
+#ifndef DRIVER_EPD_VIRTUAL_RELEASE
 ///
 /// @brief Library release number
 ///
-#define DRIVER_EPD_VIRTAL_RELEASE 902
+#define DRIVER_EPD_VIRTUAL_RELEASE 902
 
 // Board
 #include "hV_Board.h"
@@ -203,4 +203,4 @@ class Driver_EPD_Virtual: public hV_Board
     // void COG_stopDCDC();
 };
 
-#endif // DRIVER_EPD_VIRTAL_RELEASE
+#endif // DRIVER_EPD_VIRTUAL_RELEASE

@@ -6,11 +6,13 @@
 /// @n Based on highView technology
 ///
 /// @n Content
+/// * 1- List of supported Pervasive Displays screens, deprecated, see drivers
+/// * 2- List of pre-configured boards, see hV_List_Boards.h
 /// * 3- Font mode, internal MCU for basic edition
 /// * 4- Maximum number of fonts
 /// * 5- SRAM memory, internal MCU for basic edition
-/// * 6- Use self for basic edition
-/// * 7- Touch mode, activated or not
+/// * 6- Use self for basic edition, not implemented
+/// * 7- Touch mode, activated or not, not implemented
 /// * 8- Haptic feedback mode, not implemented
 /// * 9. Set GPIO expander mode, not implemented
 /// * 10. String object for basic edition

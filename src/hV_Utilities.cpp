@@ -24,6 +24,8 @@
 // Release 900: Improved formatString()
 // Release 900: Added new driver library
 // Release 900: Consolidated constants
+// Release 902: Improved power management
+// Release 902: Simplified touch options
 //
 
 // Library header
@@ -47,30 +49,14 @@ STRING_TYPE formatString(const char * format, ...)
     memset(&bufferOut, 0x00, sizeof(bufferOut));
     memcpy(bufferOut, bufferWork, strlen(bufferWork));
 
-#if (STRING_MODE == USE_STRING_OBJECT)
-
     return String(bufferOut);
-
-#elif (STRING_MODE == USE_CHAR_ARRAY)
-
-    return bufferOut;
-
-#endif // STRING_MODE
 }
 
 STRING_TYPE utf2iso(STRING_TYPE s)
 {
     uint8_t c;
 
-#if (STRING_MODE == USE_STRING_OBJECT)
-
     s.toCharArray(bufferIn, s.length() + 1);
-
-#elif (STRING_MODE == USE_CHAR_ARRAY)
-
-    strncpy(bufferIn, s, sizeof(bufferIn));
-
-#endif // STRING_MODE
 
     memset(&bufferOut, 0x00, sizeof(bufferOut));
 
@@ -99,14 +85,7 @@ STRING_TYPE utf2iso(STRING_TYPE s)
             }
         }
     }
-#if (STRING_MODE == USE_STRING_OBJECT)
 
     return String(bufferOut);
-
-#elif (STRING_MODE == USE_CHAR_ARRAY)
-
-    return bufferOut;
-
-#endif // STRING_MODE
 }
 
