@@ -39,11 +39,11 @@
 #error Required PDLS_COMMON_RELEASE 902
 #endif // PDLS_COMMON_RELEASE
 
-#ifndef hV_DRIVER_ALL_RELEASE
+#ifndef DRIVER_EPD_VIRTAL_RELEASE
 ///
 /// @brief Library release number
 ///
-#define hV_DRIVER_ALL_RELEASE 902
+#define DRIVER_EPD_VIRTAL_RELEASE 902
 
 // Board
 #include "hV_Board.h"
@@ -184,7 +184,7 @@ class Driver_EPD_Virtual: public hV_Board
     //
     // === Touch section
     //
-    virtual void d_getRawTouch(touch_t &touch);
+    virtual void d_getRawTouch(touch_t & touch);
     virtual bool d_getInterruptTouch();
     //
     // === End of Touch section
@@ -203,4 +203,4 @@ class Driver_EPD_Virtual: public hV_Board
     // void COG_stopDCDC();
 };
 
-#endif // hV_DRIVER_ALL_RELEASE
+#endif // DRIVER_EPD_VIRTAL_RELEASE

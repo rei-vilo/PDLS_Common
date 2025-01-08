@@ -18,7 +18,7 @@
 /// * 10. String object of char array options for string.
 /// * 11. Set storage mode, serial console by default
 /// * 12. Set debug options
-/// * 13. Select EXT board 
+/// * 13. Select EXT board
 ///
 /// @author Rei Vilo
 /// @date 21 Jan 2025
@@ -114,7 +114,7 @@
 /// * 10. String object of char array options for string.
 /// * 11. Set storage mode, serial console by default
 /// * 12. Set debug options
-/// * 13. Select EXT board 
+/// * 13. Select EXT board
 ///
 /// @see hV_List_Options.h
 ///
