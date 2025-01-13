@@ -1,5 +1,6 @@
 # Pervasive Displays Library Suite - Basic edition - Common library
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8e01690e90004630885c0f9668027ae9)](https://app.codacy.com/gh/rei-vilo/PDLS_Common?utm_source=github.com&utm_medium=referral&utm_content=rei-vilo/PDLS_Common&utm_campaign=Badge_Grade)
 [![Release](https://img.shields.io/github/v/release/rei-vilo/PDLS_Common)](https://github.com/rei-vilo/PDLS_Common/releases) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/77ecc9fa99834e299505f5f2a7c83e53)](https://app.codacy.com/gh/rei-vilo/PDLS_Common/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rei-vilo/PDLS_Common&amp;utm_campaign=Badge_Grade) ![Arduino lint](https://github.com/rei-vilo/PDLS_Common/actions/workflows/main.yml/badge.svg) [![GitHub issues](https://img.shields.io/github/issues/rei-vilo/PDLS_Common)](https://github.com/rei-vilo/PDLS_Common/issues)
 
 [![](https://img.shields.io/badge/-Wiki-blue)](https://docs.pervasivedisplays.com/) [![](https://img.shields.io/badge/-User_Guide-blue)](https://pdls.pervasivedisplays.com/userguide/index.html) [![](https://img.shields.io/badge/-Reference_manual-blue)](https://pdls.pervasivedisplays.com/reference/html/index.html)
