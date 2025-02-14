@@ -12,8 +12,8 @@
 ///     * 2.3 Deprecated boards
 ///
 /// @author Rei Vilo
-/// @date 21 Jan 2025
-/// @version 902
+/// @date 21 Feb 2025
+/// @version 904
 ///
 /// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
@@ -140,8 +140,8 @@ const pins_t boardRaspberryPiPico_RP2040 =
     .panelCS = 17, ///< EXT3 and EXT3.1 pin 9 Grey -> GP17
     .panelCSS = 14, ///< EXT3 and EXT3.1 pin 12 Grey2 -> GP14
     .flashCSS = 15, ///< EXT3 pin 20 or EXT3.1 pin 11 Black2 -> GP15
-    .touchInt = NOT_CONNECTED, ///< EXT3-Touch pin 3 Red -> GP2
-    .touchReset = NOT_CONNECTED, ///< EXT3-Touch pin 4 Orange -> GP3
+    .touchInt = 2, ///< EXT3-Touch pin 3 Red -> GP2
+    .touchReset = 3, ///< EXT3-Touch pin 4 Orange -> GP3
     .panelPower = NOT_CONNECTED, ///< Optional power circuit
     .cardCS = NOT_CONNECTED, ///< External SD-card board
     .cardDetect = NOT_CONNECTED, ///< External SD-card board
@@ -168,8 +168,8 @@ const pins_t boardFeatherNRF52840 =
     .panelCS = 9, ///< EXT3 and EXT3.1 pin 9 Grey -> D9 GPIO9
     .panelCSS = NOT_CONNECTED, ///< EXT3 and EXT3.1 pin 12 Grey2
     .flashCSS = NOT_CONNECTED, ///< EXT3 pin 20 or EXT3.1 pin 11 Black2
-    .touchInt = NOT_CONNECTED, ///< EXT3-Touch pin 3 Red -> D5 GPIO5
-    .touchReset = NOT_CONNECTED, ///< EXT3-Touch pin 4 Orange -> D6 GPIO6
+    .touchInt = 5, ///< EXT3-Touch pin 3 Red -> D5 GPIO5
+    .touchReset = 6, ///< EXT3-Touch pin 4 Orange -> D6 GPIO6
     .panelPower = NOT_CONNECTED, ///< Optional power circuit
     .cardCS = NOT_CONNECTED, ///< External SD-card board
     .cardDetect = NOT_CONNECTED, ///< External SD-card board
@@ -190,8 +190,8 @@ const pins_t boardESP32DevKitC =
     .panelCS = 32, ///< EXT3 and EXT3.1 pin 9 Grey -> GPIO32
     .panelCSS = 4, ///< EXT3 and EXT3.1 pin 12 Grey2 -> GPIO4
     .flashCSS = 0, ///< EXT3 pin 20 or EXT3.1 pin 11 Black2 -> GPIO0
-    .touchInt = NOT_CONNECTED, ///< EXT3-Touch pin 3 Red -> GPIO10
-    .touchReset = NOT_CONNECTED, ///< EXT3-Touch pin 4 Orange -> GPIO9
+    .touchInt = 10, ///< EXT3-Touch pin 3 Red -> GPIO10
+    .touchReset = 9, ///< EXT3-Touch pin 4 Orange -> GPIO9
     .panelPower = NOT_CONNECTED, ///< Optional power circuit
     .cardCS = NOT_CONNECTED, ///< External SD-card board
     .cardDetect = NOT_CONNECTED, ///< External SD-card board

@@ -21,8 +21,8 @@
 /// * 13. Select EXT board
 ///
 /// @author Rei Vilo
-/// @date 21 Jan 2025
-/// @version 902
+/// @date 21 Feb 2025
+/// @version 904
 ///
 /// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
