@@ -6,8 +6,8 @@
 /// @n Based on highView technology
 ///
 /// @author Rei Vilo
-/// @date 21 Jan 2025
-/// @version 902
+/// @date 21 Feb 2025
+/// @version 906
 ///
 /// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
@@ -43,7 +43,7 @@
 ///
 /// @brief Library release number
 ///
-#define DRIVER_EPD_VIRTUAL_RELEASE 902
+#define DRIVER_EPD_VIRTUAL_RELEASE 906
 
 // Board
 #include "hV_Board.h"
@@ -175,10 +175,10 @@ class Driver_EPD_Virtual: public hV_Board
   protected:
 
     eScreen_EPD_t u_eScreen_EPD;
-    int8_t u_temperature = 25;
+    int8_t u_temperature; // = 25;
     // uint8_t u_suspendMode = POWER_MODE_AUTO;
     // uint8_t u_suspendScope = POWER_SCOPE_GPIO_ONLY;
-    bool u_flagOTP = false; // true = OTP read
+    bool u_flagOTP; // = false; // true = OTP read
     uint16_t d_COG; // Identifier with film and family
 
     //

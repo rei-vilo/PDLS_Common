@@ -1,9 +1,33 @@
+//
+// Driver_EPD_Virtual.cpp
+// Class library C++ code
+// ----------------------------------
+//
+// Project Pervasive Displays Library Suite
+// Based on highView technology
+//
+// Created by Rei Vilo, 21 Nov 2024
+//
+// Copyright (c) Rei Vilo, 2010-2025
+// Licence All rights reserved
+// For exclusive use with Pervasive Displays screens
+//
+// Release 900: Added new driver library
+// Release 902: Improved stability
+// Release 906: Added fixes for GCC errors
+//
+
 #include "Driver_EPD_Virtual.h"
 
 Driver_EPD_Virtual::Driver_EPD_Virtual(eScreen_EPD_t eScreen_EPD, pins_t board)
 {
     u_eScreen_EPD = eScreen_EPD;
     b_pin = board;
+    // Added fixes for GCC errors on arm-none-eabi-gcc 10.2.1 20201103 and 12.2.1 20230214
+    // . internal compiler error: in implicitly_declare_fn, at cp/method.c:2813
+    // . default member initializer required before the end of its enclosing class
+    u_temperature = 25;
+    u_flagOTP = false; // OTP not read
 }
 
 void Driver_EPD_Virtual::begin()

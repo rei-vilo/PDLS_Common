@@ -17,6 +17,7 @@
 // Release 810: Added support for EXT4
 // Release 900: Added new driver library
 // Release 900: Consolidated constants
+// Release 906: Added check for panel power
 //
 
 // Library header
@@ -38,6 +39,10 @@ void hV_Board::b_begin(pins_t board, uint8_t family, uint16_t delayCS)
 void hV_Board::setPanelPowerPin(uint8_t panelPowerPin)
 {
     b_pin.panelPower = panelPowerPin;
+    if (b_pin.flashCS == panelPowerPin)
+    {
+        b_pin.flashCS = NOT_CONNECTED;
+    }
 }
 
 void hV_Board::b_reset(uint32_t ms1, uint32_t ms2, uint32_t ms3, uint32_t ms4, uint32_t ms5)
