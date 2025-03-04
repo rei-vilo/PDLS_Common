@@ -1,8 +1,9 @@
 //
 // hV_HAL_Peripherals.cpp
-// C++ code
+// Library C++ code
 // ----------------------------------
 //
+// Details Light hardware abstraction layer for peripherals
 // Project highView Library Suite
 //
 // Created by Rei Vilo, 08 Jan 2024
@@ -25,6 +26,7 @@
 // Release 804: Improved power management
 // Release 805: Improved stability
 // Release 900: Shared peripherals
+// Release 907: Added patches for ESP32 platform
 //
 
 // Library header
@@ -77,17 +79,19 @@ void hV_HAL_begin()
 #if defined(ARDUINO_XIAO_ESP32C3)
 
     // Board Xiao ESP32-C3 crashes if pins are not specified.
-    hV_HAL_SPI3_define(8, 9); // SCK SDA
+    // hV_HAL_SPI.begin(8, 9, 10); // SCK MISO MOSI
+    hV_HAL_SPI3_define(8, 10) // SCK SDA=MOSI
 
 #elif defined(ARDUINO_ESP32_PICO)
 
     // void begin(int8_t sck=-1, int8_t miso=-1, int8_t mosi=-1, int8_t ss=-1);
     // Board ESP32-Pico-DevKitM-2 crashes if pins are not specified.
-    hV_HAL_SPI3_define(14, 12); // SCK SDA
+    // hV_HAL_SPI.begin(14, 12, 13); // SCK MISO MOSI
+    hV_HAL_SPI3_define(14, 13); // SCK SDA=MOSI
 
 #else // General case
 
-    hV_HAL_SPI3_define(SCK, MOSI); // SCK SDA
+    hV_HAL_SPI3_define(SCK, MOSI); // SCK SDA=MOSI
 
 #endif // ARDUINO
 }

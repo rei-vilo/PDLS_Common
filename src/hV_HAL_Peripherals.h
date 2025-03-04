@@ -6,8 +6,8 @@
 /// @n Based on highView technology
 ///
 /// @author Rei Vilo
-/// @date 21 Jan 2025
-/// @version 902
+/// @date 04 Mar 2025
+/// @version 907
 ///
 /// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
@@ -56,7 +56,7 @@
 ///
 /// @brief Release
 ///
-#define hV_HAL_PERIPHERALS_RELEASE 902
+#define hV_HAL_PERIPHERALS_RELEASE 907
 
 ///
 /// @brief SDK library
