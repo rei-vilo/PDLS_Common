@@ -206,6 +206,30 @@ const pins_t boardESP32DevKitC =
 /// @}
 
 ///
+/// @brief Particle Photon 2 board, tested
+///
+const pins_t boardParticlePhoton2 =
+{
+    // ///< EXT3.1 pin 1 Black -> +3.3V
+    // ///< EXT3.1 pin 2 Brown -> SPI SCK
+    .panelBusy = 5, ///< EXT3.1 pin 3 Red -> D5
+    .panelDC = 4, ///< EXT3.1 pin 4 Orange -> D4
+    .panelReset = 3, ///< EXT3.1 pin 5 Yellow -> D3
+    // ///< EXT3.1 pin 6 Green -> SPI MISO
+    // ///< EXT3.1 pin 7 Blue -> SPI MOSI
+    .flashCS = 2, ///< EXT3.1 pin 8 Violet -> D2
+    .panelCS = 18, ///< EXT3.1 pin 9 Grey -> SS
+    // ///< EXT3.1 pin 10 White -> GROUND
+    .panelCSS = NOT_CONNECTED, ///< EXT3.1 pin 12 Grey2
+    .flashCSS = NOT_CONNECTED, ///< EXT3.1 pin 11 Black2
+    .touchInt = NOT_CONNECTED, ///< EXT3-Touch pin 3 Red
+    .touchReset = NOT_CONNECTED, ///< EXT3-Touch pin 4 Orange
+    .panelPower = NOT_CONNECTED, ///< Optional power circuit
+    .cardCS = NOT_CONNECTED, ///< External SD-card board
+    .cardDetect = NOT_CONNECTED, ///< External SD-card board
+};
+
+///
 /// @name 2.3 Deprecated boards
 /// @{
 
