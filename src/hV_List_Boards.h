@@ -207,7 +207,7 @@ const pins_t boardESP32DevKitC =
 
 ///
 /// @brief Particle Photon 2 board
-/// @note Board contributed by user
+/// @note Board contributed by user, not officially tested
 ///
 const pins_t boardParticlePhoton2 =
 {

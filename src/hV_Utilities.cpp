@@ -26,6 +26,7 @@
 // Release 900: Consolidated constants
 // Release 902: Improved power management
 // Release 902: Simplified touch options
+// Release 907: Increased buffer size 
 //
 
 // Library header
@@ -33,17 +34,19 @@
 #include "stdarg.h"
 #include "stdio.h"
 
-char bufferIn[128];
-char bufferOut[128];
+// Buffers for formatString
+#define BUFFER_LENGTH 128
+char bufferIn[BUFFER_LENGTH];
+char bufferOut[BUFFER_LENGTH];
 
 STRING_TYPE formatString(const char * format, ...)
 {
-    char bufferWork[128] = {0};
+    char bufferWork[BUFFER_LENGTH] = {0};
     // memset(&bufferWork, 0x00, sizeof(bufferOut));
 
     va_list args;
     va_start(args, format);
-    vsnprintf(bufferWork, 127, format, args);
+    vsnprintf(bufferWork, (BUFFER_LENGTH - 1), format, args);
     va_end(args);
 
     memset(&bufferOut, 0x00, sizeof(bufferOut));

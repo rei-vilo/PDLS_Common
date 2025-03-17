@@ -363,7 +363,7 @@ void hV_HAL_log(uint16_t level, const char * format, ...)
     char * frame = &buffer[strlen(buffer)];
     va_list args;
     va_start(args, format);
-    vsnprintf(frame, 63, format, args);
+    vsnprintf(frame, 127, format, args);
     va_end(args);
 
     hV_HAL_Serial.print("hV _ ");
