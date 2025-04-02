@@ -26,7 +26,7 @@
 // Release 900: Consolidated constants
 // Release 902: Improved power management
 // Release 902: Simplified touch options
-// Release 907: Increased buffer size 
+// Release 907: Increased buffer size
 //
 
 // Library header

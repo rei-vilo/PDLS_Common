@@ -76,30 +76,30 @@ void hV_HAL_begin()
     hV_HAL_Serial_crlf();
     hV_HAL_log(LEVEL_INFO, "Begin");
 
-#if defined(ARDUINO_XIAO_ESP32C3)
-
-    // Board Xiao ESP32-C3 crashes if pins are not specified.
-    // hV_HAL_SPI.begin(8, 9, 10); // SCK MISO MOSI
-    hV_HAL_SPI3_define(8, 10) // SCK SDA=MOSI
-
-#elif defined(ARDUINO_ESP32_PICO)
-
-    // void begin(int8_t sck=-1, int8_t miso=-1, int8_t mosi=-1, int8_t ss=-1);
-    // Board ESP32-Pico-DevKitM-2 crashes if pins are not specified.
-    // hV_HAL_SPI.begin(14, 12, 13); // SCK MISO MOSI
-    hV_HAL_SPI3_define(14, 13); // SCK SDA=MOSI
-
-#elif defined(DARDUINO_ARCH_ESP32)
-
-    // Other ESP32 boards crash if pins are not specified.
-    // hV_HAL_SPI.begin(14, 12, 13); // SCK MISO MOSI
-    hV_HAL_SPI3_define(14, 13); // SCK SDA=MOSI
-
-#else // General case
+    // #if defined(ARDUINO_XIAO_ESP32C3)
+    //
+    //     // Board Xiao ESP32-C3 crashes if pins are not specified.
+    //     // hV_HAL_SPI.begin(8, 9, 10); // SCK MISO MOSI
+    //     hV_HAL_SPI3_define(8, 10) // SCK SDA=MOSI
+    //
+    // #elif defined(ARDUINO_ESP32_PICO)
+    //
+    //     // void begin(int8_t sck=-1, int8_t miso=-1, int8_t mosi=-1, int8_t ss=-1);
+    //     // Board ESP32-Pico-DevKitM-2 crashes if pins are not specified.
+    //     // hV_HAL_SPI.begin(14, 12, 13); // SCK MISO MOSI
+    //     hV_HAL_SPI3_define(14, 13); // SCK SDA=MOSI
+    //
+    // #if defined(DARDUINO_ARCH_ESP32)
+    //
+    //     // Other ESP32 boards crash if pins are not specified.
+    //     // hV_HAL_SPI.begin(14, 12, 13); // SCK MISO MOSI
+    //     hV_HAL_SPI3_define(14, 13); // SCK SDA=MOSI
+    //
+    // #else // General case
 
     hV_HAL_SPI3_define(SCK, MOSI); // SCK SDA=MOSI
 
-#endif // ARDUINO
+    // #endif // ARDUINO
 }
 
 void hV_HAL_exit(uint8_t code)
@@ -160,27 +160,33 @@ void hV_HAL_SPI_begin(uint32_t speed)
         SPI.setDataMode(_settingScreen.dataMode);
         SPI.setClockDivider(SPI_CLOCK_MAX / min(SPI_CLOCK_MAX, _settingScreen.clock));
 
-#else
+#else  // ARDUINO
 
-#if defined(ARDUINO_XIAO_ESP32C3)
+        // #if defined(ARDUINO_XIAO_ESP32C3)
+        //
+        //         // Board Xiao ESP32-C3 crashes if pins are specified.
+        //         SPI.begin(8, 9, 10); // SCK MISO MOSI
+        //
+        // #elif defined(ARDUINO_ESP32_PICO)
+        //
+        //         // Board ESP32-Pico-DevKitM-2 crashes if pins are not specified.
+        //         SPI.begin(14, 12, 13); // SCK MISO MOSI
+        //
+        // #elif defined(DARDUINO_ARCH_ESP32)
+        //
+        //         // Other ESP32 boards crash if pins are not specified.
+        //         hV_HAL_SPI.begin(14, 12, 13); // SCK MISO MOSI
+        //         // hV_HAL_SPI3_define(14, 13); // SCK SDA=MOSI
 
-        // Board Xiao ESP32-C3 crashes if pins are specified.
-        SPI.begin(8, 9, 10); // SCK MISO MOSI
+#if defined(DARDUINO_ARCH_ESP32)
 
-#elif defined(ARDUINO_ESP32_PICO)
-
-        // Board ESP32-Pico-DevKitM-2 crashes if pins are not specified.
-        SPI.begin(14, 12, 13); // SCK MISO MOSI
-
-#elif defined(DARDUINO_ARCH_ESP32)
-
-        // Other ESP32 boards crash if pins are not specified.
-        hV_HAL_SPI.begin(14, 12, 13); // SCK MISO MOSI
-        // hV_HAL_SPI3_define(14, 13); // SCK SDA=MOSI
+        // ESP32 boards crash if pins are not specified.
+        hV_HAL_SPI.begin(SCK, MISO, MOSI); // SCK MISO MOSI
 
 #else // General case
 
         SPI.begin();
+        hV_HAL_SPI.begin(SCK, MISO, MOSI); // SCK MISO MOSI
 
 #endif // SPI specifics
 
