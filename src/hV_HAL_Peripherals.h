@@ -6,8 +6,8 @@
 /// @n Based on highView technology
 ///
 /// @author Rei Vilo
-/// @date 04 Mar 2025
-/// @version 907
+/// @date 21 Apr 2025
+/// @version 908
 ///
 /// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
@@ -56,7 +56,7 @@
 ///
 /// @brief Release
 ///
-#define hV_HAL_PERIPHERALS_RELEASE 907
+#define hV_HAL_PERIPHERALS_RELEASE 908
 
 ///
 /// @brief SDK library
@@ -163,10 +163,9 @@ void hV_HAL_Serial_crlf(void);
 
 ///
 /// @name SPI bus
-/// @warning
-/// * Arduino: SPI ESP32 uses pins SCK = 14, MISO = 12 and MOSI = 13
-/// * ESP32: Special cases for Xiao ESP32C3, ESP32-Pico-DevKitM-2, generic ESP32 boards
-/// * ESP32: Other ESP32 boards may require editing the code
+/// @warning SPI.begin()
+/// * Arduino: no parameters
+/// * ESP32: required parameters for SCK, MOSI and MISO
 /// @{
 
 ///
@@ -198,8 +197,6 @@ uint8_t hV_HAL_SPI_transfer(uint8_t data);
 /// @name 3-wire SPI bus
 /// @warning
 /// * Arduino does not support 3-wire SPI, bit-bang simulation
-/// * ESP32: Special cases for Xiao ESP32C3, ESP32-Pico-DevKitM-2, generic ESP32 boards
-/// * ESP32: Other ESP32 boards may require editing the code
 /// * Viewer: For compatibility only, not implemented in Linux
 /// @note hV_HAL_SPI3_begin() sets the pins for 3-wire SPI.
 /// @{

@@ -27,6 +27,7 @@
 // Release 805: Improved stability
 // Release 900: Shared peripherals
 // Release 907: Added patches for ESP32 platform
+// Release 908: Fixed SPI settings for ESP32
 //
 
 // Library header
@@ -79,20 +80,20 @@ void hV_HAL_begin()
     // #if defined(ARDUINO_XIAO_ESP32C3)
     //
     //     // Board Xiao ESP32-C3 crashes if pins are not specified.
-    //     // hV_HAL_SPI.begin(8, 9, 10); // SCK MISO MOSI
+    //     // SPI.begin(8, 9, 10); // SCK MISO MOSI
     //     hV_HAL_SPI3_define(8, 10) // SCK SDA=MOSI
     //
     // #elif defined(ARDUINO_ESP32_PICO)
     //
     //     // void begin(int8_t sck=-1, int8_t miso=-1, int8_t mosi=-1, int8_t ss=-1);
     //     // Board ESP32-Pico-DevKitM-2 crashes if pins are not specified.
-    //     // hV_HAL_SPI.begin(14, 12, 13); // SCK MISO MOSI
+    //     // SPI.begin(14, 12, 13); // SCK MISO MOSI
     //     hV_HAL_SPI3_define(14, 13); // SCK SDA=MOSI
     //
     // #if defined(DARDUINO_ARCH_ESP32)
     //
     //     // Other ESP32 boards crash if pins are not specified.
-    //     // hV_HAL_SPI.begin(14, 12, 13); // SCK MISO MOSI
+    //     // SPI.begin(14, 12, 13); // SCK MISO MOSI
     //     hV_HAL_SPI3_define(14, 13); // SCK SDA=MOSI
     //
     // #else // General case
@@ -153,7 +154,7 @@ void hV_HAL_SPI_begin(uint32_t speed)
     {
         _settingScreen = {speed, MSBFIRST, SPI_MODE0};
 
-#if defined(ENERGIA)
+#if defined(ENERGIA) // ENERGIA
 
         SPI.begin();
         SPI.setBitOrder(_settingScreen.bitOrder);
@@ -175,18 +176,17 @@ void hV_HAL_SPI_begin(uint32_t speed)
         // #elif defined(DARDUINO_ARCH_ESP32)
         //
         //         // Other ESP32 boards crash if pins are not specified.
-        //         hV_HAL_SPI.begin(14, 12, 13); // SCK MISO MOSI
+        //         SPI.begin(14, 12, 13); // SCK MISO MOSI
         //         // hV_HAL_SPI3_define(14, 13); // SCK SDA=MOSI
 
 #if defined(DARDUINO_ARCH_ESP32)
 
         // ESP32 boards crash if pins are not specified.
-        hV_HAL_SPI.begin(SCK, MISO, MOSI); // SCK MISO MOSI
+        SPI.begin(SCK, MISO, MOSI); // SCK MISO MOSI
 
 #else // General case
 
         SPI.begin();
-        hV_HAL_SPI.begin(SCK, MISO, MOSI); // SCK MISO MOSI
 
 #endif // SPI specifics
 
