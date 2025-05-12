@@ -27,7 +27,8 @@
 // Release 805: Improved stability
 // Release 900: Shared peripherals
 // Release 907: Added patches for ESP32 platform
-// Release 908: Fixed SPI settings for ESP32
+// Release 908: Fixed SPI settings for ESP32 platform
+// Release 909: Added I2C device availability check
 //
 
 // Library header
@@ -305,8 +306,9 @@ void hV_HAL_Wire_end()
     }
 }
 
-void hV_HAL_Wire_transfer(uint8_t address, uint8_t * dataWrite, size_t sizeWrite, uint8_t * dataRead, size_t sizeRead)
+uint8_t hV_HAL_Wire_transfer(uint8_t address, uint8_t * dataWrite, size_t sizeWrite, uint8_t * dataRead, size_t sizeRead)
 {
+    uint8_t result = 0;
     if (sizeWrite > 0)
     {
         Wire.beginTransmission(address);
@@ -316,7 +318,7 @@ void hV_HAL_Wire_transfer(uint8_t address, uint8_t * dataWrite, size_t sizeWrite
             Wire.write(dataWrite[index]);
         }
 
-        Wire.endTransmission();
+        result = Wire.endTransmission();
 
 #if defined(ENERGIA)
 
@@ -340,6 +342,20 @@ void hV_HAL_Wire_transfer(uint8_t address, uint8_t * dataWrite, size_t sizeWrite
             dataRead[index] = Wire.read();
         }
     }
+
+    // endTransmission() returns a status code
+    // 0: success.
+    // 1: data too long to fit in transmit buffer.
+    // 2: received NACK on transmit of address.
+    // 3: received NACK on transmit of data.
+    // 4: other error.
+    // 5: timeout
+    // See https://docs.arduino.cc/language-reference/en/functions/communication/wire/endTransmission/
+
+    // #define RESULT_SUCCESS 0 ///< Success
+    // #define RESULT_ERROR 1 ///< Error
+
+    return (result == 0) ? 0 : 1;
 }
 //
 // === End of Wire section

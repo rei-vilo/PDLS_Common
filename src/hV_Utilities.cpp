@@ -27,6 +27,8 @@
 // Release 902: Improved power management
 // Release 902: Simplified touch options
 // Release 907: Increased buffer size
+// Release 908: Added ISO translations for UTF ' and "
+// Release 909: Added GridXY class
 //
 
 // Library header
@@ -86,9 +88,61 @@ STRING_TYPE utf2iso(STRING_TYPE s)
                 bufferOut[strlen(bufferOut)] = 0x80;
                 i += 2;
             }
+            if ((bufferIn[i + 1] == 0x89) && (bufferIn[i + 2] == 0x88))
+            {
+                bufferOut[strlen(bufferOut)] = 0x27;
+                i += 2;
+            }
+            if ((bufferIn[i + 1] == 0x80) && (bufferIn[i + 2] == 0x9d))
+            {
+                bufferOut[strlen(bufferOut)] = 0x22;
+                i += 2;
+            }
         }
     }
 
     return String(bufferOut);
 }
 
+GridXY::GridXY()
+{
+    _x0 = 0;
+    _y0 = 0;
+    _dx = 0;
+    _dy = 0;
+}
+
+void GridXY::define(uint16_t x0, uint16_t y0, uint16_t dx, uint16_t dy, uint16_t nX, uint16_t nY, bool flagAdjust)
+{
+    _x0 = x0;
+    _y0 = y0;
+    _dx = dx / nX;
+    _dy = dy / nY;
+
+    if (flagAdjust == true)
+    {
+        _x0 += (dx - nX * _dx) / 2;
+        _y0 += (dy - nY * _dy) / 2;
+    }
+}
+
+uint16_t GridXY::dX(uint16_t i)
+{
+    return (i * _dx);
+}
+
+uint16_t GridXY::dY(uint16_t i)
+{
+    return (i * _dy);
+}
+
+
+uint16_t GridXY::x(uint16_t i)
+{
+    return (_x0 + i * _dx);
+}
+
+uint16_t GridXY::y(uint16_t i)
+{
+    return (_y0 + i * _dy);
+}

@@ -6,8 +6,8 @@
 /// @n Based on highView technology
 ///
 /// @author Rei Vilo
-/// @date 04 Mar 2025
-/// @version 907
+/// @date 21 May 2025
+/// @version 909
 ///
 /// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
@@ -36,7 +36,7 @@
 ///
 /// @brief Library release number
 ///
-#define PDLS_COMMON_RELEASE 907
+#define PDLS_COMMON_RELEASE 909
 
 ///
 /// @brief SDK

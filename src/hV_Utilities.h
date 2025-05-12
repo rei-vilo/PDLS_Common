@@ -6,8 +6,8 @@
 /// @n Based on highView technology
 ///
 /// @author Rei Vilo
-/// @date 21 Mar 2025
-/// @version 907
+/// @date 21 May 2025
+/// @version 909
 ///
 /// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
@@ -64,7 +64,7 @@
 ///
 /// @brief Library release number
 ///
-#define hV_UTILITIES_RELEASE 907
+#define hV_UTILITIES_RELEASE 909
 
 ///
 /// @name Orientation constants
@@ -131,7 +131,7 @@ STRING_TYPE formatString(const char * format, ...);
 /// * if value > valueMax, return valueMax
 /// Otherwise, if valueMin > valueMax, valueMin and valueMax are swapped
 ///
-template<typename T>
+template <typename T>
 T checkRange(T value, T valueMin, T valueMax)
 {
     T localMin = (valueMin < valueMax) ? valueMin : valueMax;
@@ -144,6 +144,66 @@ T checkRange(T value, T valueMin, T valueMax)
     result = (localMax < result) ? localMax : result;
 
     return result;
+};
+
+///
+/// @brief Grid class, x- and y-axis
+///
+class GridXY
+{
+  public:
+    ///
+    /// Constructor
+    ///
+    GridXY();
+
+    ///
+    /// @brief Define the grid
+    /// @param x0 origin coordinate, x-axis
+    /// @param y0 origin coordinate, y-axis
+    /// @param dx size of the grid, x-axis
+    /// @param dy size of the grid, y-axis
+    /// @param nX number of divisions in x-axis
+    /// @param nY number of divisions in y-axis
+    /// @param flagAdjust adjust origin, default false
+    ///
+    void define(uint16_t x0, uint16_t y0, uint16_t dx, uint16_t dy, uint16_t nX, uint16_t nY, bool flagAdjust = false);
+
+    ///
+    /// @brief Get size for number of divisions, x-axis
+    /// @param i number of divisions, 0..n
+    /// @return pixels of the divisions
+    /// @note No check on i <= n
+    ///
+    uint16_t dX(uint16_t i = 1);
+
+    ///
+    /// @brief Get size for number of divisions, y-axis
+    /// @param i number of divisions, 0..n
+    /// @return pixels of the divisions
+    /// @note No check on i <= n
+    ///
+    uint16_t dY(uint16_t i = 1);
+
+    ///
+    /// @brief Get coordinate at division, x-axis
+    /// @param i index of the division, 0..n-1
+    /// @return coordinate of the start of the division
+    /// @note No check on i < n
+    ///
+    uint16_t x(uint16_t i = 0);
+
+    ///
+    /// @brief Get coordinate at division, y-axis
+    /// @param i index of the division, 0..n-1
+    /// @return coordinate of the start of the division
+    /// @note No check on i < n
+    ///
+    uint16_t y(uint16_t i = 0);
+
+  private:
+    uint16_t _x0, _y0; ///< origin coordinates
+    uint16_t _dx, _dy; ///< size of the division
 };
 
 /// @}

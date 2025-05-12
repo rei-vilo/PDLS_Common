@@ -21,8 +21,8 @@
 /// * 13. Select EXT board
 ///
 /// @author Rei Vilo
-/// @date 21 Feb 2025
-/// @version 904
+/// @date 21 May 2025
+/// @version 909
 ///
 /// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
@@ -51,7 +51,7 @@
 ///
 /// @brief Release
 ///
-#define hV_LIST_OPTIONS_RELEASE 902
+#define hV_LIST_OPTIONS_RELEASE 909
 
 ///
 /// @name 1- List of supported Pervasive Displays screens
@@ -211,7 +211,7 @@
 ///
 /// @{
 #define BOARD_EXT2 2 ///< EXT2 board
-#define BOARD_EXT3 3 ///< EXT3 and EXT3.1 boards
+#define BOARD_EXT3 3 ///< EXT3, EXT3.1 and EXT-ULP boards
 #define BOARD_EXT4 4 ///< EXT4 board
 
 #define USE_EXT_BOARD BOARD_EXT3 ///< Selected board
