@@ -206,6 +206,14 @@ class GridXY
     uint16_t _dx, _dy; ///< size of the division
 };
 
+//
+// --- Advanced edition
+//
+
 /// @}
+
+//
+// --- End of Advanced edition
+//
 
 #endif // hV_UTILITIES_RELEASE

@@ -211,7 +211,7 @@
 ///
 /// @{
 #define BOARD_EXT2 2 ///< EXT2 board
-#define BOARD_EXT3 3 ///< EXT3, EXT3.1 and EXT-ULP boards
+#define BOARD_EXT3 3 ///< EXT3 and EXT3.1 boards
 #define BOARD_EXT4 4 ///< EXT4 board
 
 #define USE_EXT_BOARD BOARD_EXT3 ///< Selected board

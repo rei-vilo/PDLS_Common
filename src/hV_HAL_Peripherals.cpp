@@ -29,6 +29,8 @@
 // Release 907: Added patches for ESP32 platform
 // Release 908: Fixed SPI settings for ESP32 platform
 // Release 909: Added I2C device availability check
+// Release 911: Added delay on I²C write and read transfer
+// Release 911: Added overtime check on I²C write and read transfer
 //
 
 // Library header
@@ -306,9 +308,10 @@ void hV_HAL_Wire_end()
     }
 }
 
-uint8_t hV_HAL_Wire_transfer(uint8_t address, uint8_t * dataWrite, size_t sizeWrite, uint8_t * dataRead, size_t sizeRead)
+uint8_t hV_HAL_Wire_transfer(uint8_t address, uint8_t * dataWrite, size_t sizeWrite, uint8_t * dataRead, size_t sizeRead, uint32_t us)
 {
     uint8_t result = 0;
+
     if (sizeWrite > 0)
     {
         Wire.beginTransmission(address);
@@ -328,13 +331,26 @@ uint8_t hV_HAL_Wire_transfer(uint8_t address, uint8_t * dataWrite, size_t sizeWr
 #endif // ENERGIA
     }
 
+    if (us > 0)
+    {
+        hV_HAL_delayMicroseconds(us);
+    }
+
     if (sizeRead > 0)
     {
         memset(dataRead, 0x00, sizeRead);
         Wire.requestFrom(address, sizeRead);
-        while (Wire.available() < sizeRead)
+        uint8_t count = 8;
+        while ((Wire.available() < sizeRead) and (count > 0))
         {
             delay(4);
+            count -= 1;
+        }
+
+        if ((count == 0) and (Wire.available() < sizeRead))
+        {
+            // hV_HAL_log(LEVEL_ERROR, "I2C device 0x%02x overtime", address);
+            return 1;
         }
 
         for (uint8_t index = 0; index < sizeRead; index++)

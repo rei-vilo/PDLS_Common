@@ -6,8 +6,8 @@
 /// @n Based on highView technology
 ///
 /// @author Rei Vilo
-/// @date 21 Jan 2025
-/// @version 902
+/// @date 21 Jun 2025
+/// @version 910
 ///
 /// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
@@ -36,7 +36,7 @@
 ///
 /// @brief Release
 ///
-#define hV_LIST_TYPES_RELEASE 902
+#define hV_LIST_TYPES_RELEASE 910
 
 // SDK
 #include "hV_HAL_Peripherals.h"
@@ -58,6 +58,10 @@
 ///
 #define FRAMEBUFFER_TYPE uint8_t *
 #define FRAMEBUFFER_CONST_TYPE const uint8_t *
+
+///
+/// @brief Buffer size
+#define BUFFER_LENGTH 128
 
 ///
 /// @brief Type for string

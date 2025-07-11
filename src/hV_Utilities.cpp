@@ -37,7 +37,6 @@
 #include "stdio.h"
 
 // Buffers for formatString
-#define BUFFER_LENGTH 128
 char bufferIn[BUFFER_LENGTH];
 char bufferOut[BUFFER_LENGTH];
 

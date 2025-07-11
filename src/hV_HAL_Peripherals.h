@@ -6,8 +6,8 @@
 /// @n Based on highView technology
 ///
 /// @author Rei Vilo
-/// @date 21 May 2025
-/// @version 909
+/// @date 21 Jul 2025
+/// @version 911
 ///
 /// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
@@ -56,7 +56,7 @@
 ///
 /// @brief Release
 ///
-#define hV_HAL_PERIPHERALS_RELEASE 909
+#define hV_HAL_PERIPHERALS_RELEASE 911
 
 ///
 /// @brief SDK library
@@ -271,18 +271,19 @@ void hV_HAL_Wire_begin();
 void hV_HAL_Wire_end();
 
 ///
-/// @brief Combined write and read
+/// @brief Combined write and read with optional delay
 ///
 /// @param[in] address I2C device address
 /// @param[in] dataWrite buffer to write
 /// @param[in] sizeWrite number of bytes
 /// @param[out] dataRead buffer to read
 /// @param[in] sizeRead number of bytes
+/// @param[in] us delay in microseconds, default = 0 = no delay
 /// @return uint8_t transmission status, RESULT_SUCCESS = 0 or RESULT_ERROR = 1
 /// @note If sizeRead = 0, no read performed
 /// @warning No check for previous initialisation
 ///
-uint8_t hV_HAL_Wire_transfer(uint8_t address, uint8_t * dataWrite, size_t sizeWrite, uint8_t * dataRead = 0, size_t sizeRead = 0);
+uint8_t hV_HAL_Wire_transfer(uint8_t address, uint8_t * dataWrite, size_t sizeWrite, uint8_t * dataRead = 0, size_t sizeRead = 0, uint32_t us = 0);
 
 /// @}
 
