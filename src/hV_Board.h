@@ -79,15 +79,6 @@ class hV_Board
     ///
     hV_Board();
 
-    ///
-    /// @brief Set panelPower pin
-    /// @param panelPowerPin panelPower pin
-    /// @note EXT4 requires panelPower
-    /// @note If flashCS defined with panelPowerPin, then flashCS set to NOT_CONNECTED
-    /// @warning setPanelPowerPin() should be called before begin()
-    ///
-    void setPanelPowerPin(uint8_t panelPowerPin = NOT_CONNECTED);
-
   protected:
 
     /// @cond NOT_PUBLIC

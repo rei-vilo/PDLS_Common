@@ -15,6 +15,7 @@
 // Release 900: Added new driver library
 // Release 902: Improved stability
 // Release 906: Added fixes for GCC errors
+// Release 912: Added temperature functions to driver 
 //
 
 #include "Driver_EPD_Virtual.h"
@@ -33,6 +34,17 @@ Driver_EPD_Virtual::Driver_EPD_Virtual(eScreen_EPD_t eScreen_EPD, pins_t board)
 void Driver_EPD_Virtual::begin()
 {
     ;
+}
+
+void Driver_EPD_Virtual::setTemperatureC(int8_t temperatureC)
+{
+    u_temperature = temperatureC;
+}
+
+void Driver_EPD_Virtual::setTemperatureF(int16_t temperatureF)
+{
+    int8_t temperatureC = ((temperatureF - 32) * 5) / 9; // C = (F - 32) * 5 / 9
+    setTemperatureC(temperatureC);
 }
 
 void Driver_EPD_Virtual::updateNormal(FRAMEBUFFER_CONST_TYPE frame,

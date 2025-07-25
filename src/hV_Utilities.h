@@ -6,8 +6,8 @@
 /// @n Based on highView technology
 ///
 /// @author Rei Vilo
-/// @date 21 May 2025
-/// @version 909
+/// @date 21 Jun 2025
+/// @version 910
 ///
 /// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
@@ -64,7 +64,7 @@
 ///
 /// @brief Library release number
 ///
-#define hV_UTILITIES_RELEASE 909
+#define hV_UTILITIES_RELEASE 910
 
 ///
 /// @name Orientation constants

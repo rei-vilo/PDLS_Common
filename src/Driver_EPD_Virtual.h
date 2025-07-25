@@ -6,8 +6,8 @@
 /// @n Based on highView technology
 ///
 /// @author Rei Vilo
-/// @date 21 Feb 2025
-/// @version 906
+/// @date 21 Aug 2025
+/// @version 912
 ///
 /// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
@@ -43,7 +43,7 @@
 ///
 /// @brief Library release number
 ///
-#define DRIVER_EPD_VIRTUAL_RELEASE 906
+#define DRIVER_EPD_VIRTUAL_RELEASE 912
 
 // Board
 #include "hV_Board.h"
@@ -98,6 +98,22 @@ class Driver_EPD_Virtual: public hV_Board
     /// @return STRING_CONST_TYPE scope and release number
     ///
     virtual STRING_CONST_TYPE reference();
+
+    ///
+    /// @brief Set temperature in Celsius
+    /// @details Set the temperature for update
+    /// @param temperatureC temperature in °C, default = 25 °C
+    /// @note Refer to data-sheets for authorised operating temperatures
+    ///
+    void setTemperatureC(int8_t temperatureC = 25);
+
+    ///
+    /// @brief Set temperature in Fahrenheit
+    /// @details Set the temperature for update
+    /// @param temperatureF temperature in °F, default = 77 °F = 25 °C
+    /// @note Refer to data-sheets for authorised operating temperatures
+    ///
+    void setTemperatureF(int16_t temperatureF = 77);
 
     ///
     /// @brief Normal update
@@ -175,7 +191,7 @@ class Driver_EPD_Virtual: public hV_Board
   protected:
 
     eScreen_EPD_t u_eScreen_EPD;
-    int8_t u_temperature; // = 25;
+    int8_t u_temperature = 25;
     // uint8_t u_suspendMode = POWER_MODE_AUTO;
     // uint8_t u_suspendScope = POWER_SCOPE_GPIO_ONLY;
     bool u_flagOTP; // = false; // true = OTP read
