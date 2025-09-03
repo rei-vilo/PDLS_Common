@@ -2,11 +2,11 @@
 
 [![Release](https://img.shields.io/github/v/release/rei-vilo/PDLS_Common)](https://github.com/rei-vilo/PDLS_Common/releases) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/6ced75939ad648c3bcba058b58c65871)](https://app.codacy.com/gh/rei-vilo/PDLS_Common/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) ![Arduino lint](https://github.com/rei-vilo/PDLS_Common/actions/workflows/main.yml/badge.svg) [![GitHub issues](https://img.shields.io/github/issues/rei-vilo/PDLS_Common)](https://github.com/rei-vilo/PDLS_Common/issues)
 
-[![](https://img.shields.io/badge/-Technical_Wiki-blue)](https://docs.pervasivedisplays.com/) [![](https://img.shields.io/badge/-User_Guide-blue)](https://pdls.pervasivedisplays.com/userguide/index.html) [![](https://img.shields.io/badge/-Reference_Manual-blue)](https://pdls.pervasivedisplays.com/reference/html/index.html)
+[![](https://img.shields.io/badge/-Knowledge_Base-orange)](https://docs.pervasivedisplays.com/knowledge/)
 
 The Pervasive Displays Library Suite is specifically designed for the [Pervasive Displays](https://www.pervasivedisplays.com) e-paper screens, extension boards and evaluation kits.
 
-![](https://pdls.pervasivedisplays.com/userguide/img/Logo_PDI_text_320.png)
+![](img/Logo_PDI_text_320.png)
 
 Release 9 inaugurates a new structure based on drivers developed by Pervasive Displays.
 
@@ -19,13 +19,14 @@ The **PDLS_Common** library provides a light hardware abstraction layer with C-l
 
 ## Documentation
 
-* [Pervasive Displays Technical Wiki](https://docs.pervasivedisplays.com/) 
-* [User guide](https://pdls.pervasivedisplays.com/userguide/index.html) with commented examples
-* [Reference manual](https://pdls.pervasivedisplays.com/reference/html/index.html) 
+* [Knowledge Base](https://docs.pervasivedisplays.com/knwoledge/)
 
 ## Support
 
-* Please refer to the [PDLS_Common](https://github.com/rei-vilo/PDLS_Common/issues) repository for reporting issues and contributing pull requests.
+* Please refer to the [Support](https://docs.pervasivedisplays.com/knowledge/
+Volume5/) page with FAQ, technical notes and reference designs.
+
+* Report issues at the [PDLS_Common](https://github.com/pervasivedisplays/PDLS_Common/issues) repository.
 
 ## Installation
 

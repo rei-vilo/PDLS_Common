@@ -7,7 +7,7 @@
 ///
 /// @author Rei Vilo
 /// @date 21 Aug 2025
-/// @version 912
+/// @version 920
 ///
 /// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
@@ -36,7 +36,13 @@
 ///
 /// @brief Library release number
 ///
-#define PDLS_COMMON_RELEASE 912
+#define PDLS_COMMON_RELEASE 920
+
+///
+/// @brief Edition
+/// @details Basic edition
+///
+#define EDITION_BASIC
 
 ///
 /// @brief SDK
