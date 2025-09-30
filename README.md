@@ -6,7 +6,7 @@
 
 The Pervasive Displays Library Suite is specifically designed for the [Pervasive Displays](https://www.pervasivedisplays.com) e-paper screens, extension boards and evaluation kits.
 
-![](img/Logo_PDI_text_320.png)
+![](img/Pervasive_Displays_logo_gray.png)
 
 Release 9 inaugurates a new structure based on drivers developed by Pervasive Displays.
 
@@ -23,7 +23,8 @@ The **PDLS_Common** library provides a light hardware abstraction layer with C-l
 
 ## Support
 
-* Please refer to the [Support](https://docs.pervasivedisplays.com/knowledge/Software/Volume5/index.html) page with FAQ, technical notes and reference designs.
+* Please refer to the [Support](https://docs.pervasivedisplays.com/knowledge/
+Volume5/) page with FAQ, technical notes and reference designs.
 
 * Report issues at the [PDLS_Common](https://github.com/pervasivedisplays/PDLS_Common/issues) repository.
 
@@ -57,7 +58,7 @@ Hardware
 
 ## Licence
 
-**Copyright** &copy; Rei Vilo, 2010-2025
+**Copyright** &copy; Etigues, 2010-2025
 
 *For exclusive use with Pervasive Displays screens*
 

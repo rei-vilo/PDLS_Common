@@ -7,11 +7,10 @@
 ///
 /// * Edition: Advanced
 ///
-/// @author Rei Vilo
 /// @date 21 Feb 2025
 /// @version 906
 ///
-/// @copyright (c) Rei Vilo, 2010-2025
+/// @copyright (c) Etigues, 2010-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
 ///

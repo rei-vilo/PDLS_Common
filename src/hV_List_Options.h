@@ -20,11 +20,10 @@
 /// * 12. Set debug options, not implemented
 /// * 13. Select EXT board
 ///
-/// @author Rei Vilo
 /// @date 21 May 2025
 /// @version 909
 ///
-/// @copyright (c) Rei Vilo, 2010-2025
+/// @copyright (c) Etigues, 2010-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
 ///

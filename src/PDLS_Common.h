@@ -5,11 +5,10 @@
 /// @details Project Pervasive Displays Library Suite
 /// @n Based on highView technology
 ///
-/// @author Rei Vilo
-/// @date 21 Aug 2025
-/// @version 920
+/// @date 21 Sep 2025
+/// @version 921
 ///
-/// @copyright (c) Rei Vilo, 2010-2025
+/// @copyright (c) Etigues, 2010-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
 ///
@@ -36,7 +35,7 @@
 ///
 /// @brief Library release number
 ///
-#define PDLS_COMMON_RELEASE 920
+#define PDLS_COMMON_RELEASE 921
 
 ///
 /// @brief Edition
