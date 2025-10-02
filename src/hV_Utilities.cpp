@@ -9,7 +9,9 @@
 // Created by Rei Vilo, 01 Jun 2013
 //
 // Copyright (c) Etigues, 2010-2025
+// Copyright (c) Pervasive Displays Inc., 2021-2025
 // Licence All rights reserved
+// For exclusive use with Pervasive Displays screens
 //
 // See hV_Utilities.h for references
 //

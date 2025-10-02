@@ -19,14 +19,13 @@ The **PDLS_Common** library provides a light hardware abstraction layer with C-l
 
 ## Documentation
 
-* [Knowledge Base](https://docs.pervasivedisplays.com/knwoledge/)
+* [Knowledge Base](https://docs.pervasivedisplays.com/knowledge/)
 
 ## Support
 
-* Please refer to the [Support](https://docs.pervasivedisplays.com/knowledge/
-Volume5/) page with FAQ, technical notes and reference designs.
+* Please refer to the [Support](https://docs.pervasivedisplays.com/knowledge/Software/Volume5/) page with FAQ, technical notes and reference designs.
 
-* Report issues at the [PDLS_Common](https://github.com/pervasivedisplays/PDLS_Common/issues) repository.
+* Report an issue at the [PDLS_Common](https://github.com/pervasivedisplays/PDLS_Common/issues) repository.
 
 ## Installation
 
@@ -59,6 +58,7 @@ Hardware
 ## Licence
 
 **Copyright** &copy; Etigues, 2010-2025
+**Copyright** &copy; Pervasive Displays, 2021-2025
 
 *For exclusive use with Pervasive Displays screens*
 

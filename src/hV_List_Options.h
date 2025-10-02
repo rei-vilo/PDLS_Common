@@ -20,10 +20,11 @@
 /// * 12. Set debug options, not implemented
 /// * 13. Select EXT board
 ///
-/// @date 21 May 2025
-/// @version 909
+/// @date 21 Jun 2025
+/// @version 910
 ///
 /// @copyright (c) Etigues, 2010-2025
+/// @copyright (c) Pervasive Displays Inc., 2021-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
 ///
@@ -50,7 +51,7 @@
 ///
 /// @brief Release
 ///
-#define hV_LIST_OPTIONS_RELEASE 909
+#define hV_LIST_OPTIONS_RELEASE 910
 
 ///
 /// @name 1- List of supported Pervasive Displays screens

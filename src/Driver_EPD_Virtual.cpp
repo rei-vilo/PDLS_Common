@@ -9,13 +9,14 @@
 // Created by Rei Vilo, 21 Nov 2024
 //
 // Copyright (c) Etigues, 2010-2025
+// Copyright (c) Pervasive Displays Inc., 2021-2025
 // Licence All rights reserved
 // For exclusive use with Pervasive Displays screens
 //
 // Release 900: Added new driver library
 // Release 902: Improved stability
 // Release 906: Added fixes for GCC errors
-// Release 912: Added temperature functions to driver 
+// Release 912: Added temperature functions to driver
 //
 
 #include "Driver_EPD_Virtual.h"

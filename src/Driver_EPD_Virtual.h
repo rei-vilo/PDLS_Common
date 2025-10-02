@@ -9,6 +9,7 @@
 /// @version 912
 ///
 /// @copyright (c) Etigues, 2010-2025
+/// @copyright (c) Pervasive Displays Inc., 2021-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
 ///
@@ -193,7 +194,7 @@ class Driver_EPD_Virtual: public hV_Board
     int8_t u_temperature = 25;
     // uint8_t u_suspendMode = POWER_MODE_AUTO;
     // uint8_t u_suspendScope = POWER_SCOPE_GPIO_ONLY;
-    bool u_flagOTP; // = false; // true = OTP read
+    bool u_flagOTP = false; // true = OTP read
     uint16_t d_COG; // Identifier with film and family
 
     //
