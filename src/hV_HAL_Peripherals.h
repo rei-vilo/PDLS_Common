@@ -2,14 +2,12 @@
 /// @file hV_HAL_Peripherals.h
 /// @brief Light hardware abstraction layer for peripherals
 ///
-/// @details Project Pervasive Displays Library Suite
-/// @n Based on highView technology
+/// @details Based on highView technology
 ///
-/// @date 21 Jul 2025
-/// @version 911
+/// @date 21 Oct 2025
+/// @version 922
 ///
 /// @copyright (c) Etigues, 2010-2025
-/// @copyright (c) Pervasive Displays Inc., 2021-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
 ///
@@ -56,7 +54,7 @@
 ///
 /// @brief Release
 ///
-#define hV_HAL_PERIPHERALS_RELEASE 911
+#define hV_HAL_PERIPHERALS_RELEASE 922
 
 ///
 /// @brief SDK library
@@ -133,6 +131,19 @@ void hV_HAL_exit(uint8_t code = 0);
 
 void hV_HAL_GPIO_begin(void);
 
+///
+/// @brief Undefine GPIO
+///
+/// @param pin pin number or pin name according to SDK
+///
+void hV_HAL_GPIO_undefine(uint8_t pin);
+
+///
+/// @brief Wait for GPIO
+///
+/// @param pin pin number or pin name according to SDK
+/// @param state HIGH or LOW
+///
 void hV_HAL_GPIO_waitFor(uint8_t pin, uint8_t state);
 
 /// @}
@@ -221,6 +232,7 @@ void hV_HAL_SPI3_begin();
 
 ///
 /// @brief End 3-wire SPI
+/// @warning Some platforms require freeing the GPIOs used by 3-wire SPI before starting SPI.
 ///
 void hV_HAL_SPI3_end();
 

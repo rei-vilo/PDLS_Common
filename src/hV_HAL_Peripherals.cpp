@@ -9,7 +9,6 @@
 // Created by Rei Vilo, 08 Jan 2024
 //
 // Copyright (c) Etigues, 2010-2025
-// Copyright (c) Pervasive Displays Inc., 2021-2025
 // Licence All rights reserved
 // For exclusive use with Pervasive Displays screens
 //
@@ -33,6 +32,7 @@
 // Release 909: Added I2C device availability check
 // Release 911: Added delay on I²C write and read transfer
 // Release 911: Added overtime check on I²C write and read transfer
+// Release 922: Improved 3-wire SPI stability
 //
 
 // Library header
@@ -127,6 +127,27 @@ void hV_HAL_exit(uint8_t code)
 void hV_HAL_GPIO_begin()
 {
     ;
+}
+
+void hV_HAL_GPIO_undefine(uint8_t pin)
+{
+#if defined(ENERGIA)
+
+#if defined(ENERGIA_ARCH_CC13X2) || defined(ENERGIA_ARCH_CC13XX)
+
+#ifdef WITH_STOPDIGITALIO // --- Option 1
+
+    stopDigitalIO(pin);
+
+#else // --- Option 2
+
+    GPIOCC26xx_release(pin);
+
+#endif // WITH_STOPDIGITALIO
+
+#endif // ENERGIA_ARCH_CC13X2 or ENERGIA_ARCH_CC13XX
+
+#endif // ENERGIA
 }
 
 void hV_HAL_GPIO_waitFor(uint8_t pin, uint8_t state)
@@ -227,6 +248,12 @@ uint8_t hV_HAL_SPI_transfer(uint8_t data)
 void hV_HAL_SPI3_begin()
 {
     ;
+}
+
+void hV_HAL_SPI3_end()
+{
+    hV_HAL_GPIO_undefine(h_pinSPI3.pinClock);
+    hV_HAL_GPIO_undefine(h_pinSPI3.pinData);
 }
 
 void hV_HAL_SPI3_define(uint8_t pinClock, uint8_t pinData)

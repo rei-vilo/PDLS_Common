@@ -5,11 +5,11 @@
 /// @details Project Pervasive Displays Library Suite
 /// @n Based on highView technology
 ///
-/// @date 21 Sep 2025
-/// @version 921
+/// @date 21 Oct 2025
+/// @version 922
 ///
-/// @copyright (c) Etigues, 2010-2025
 /// @copyright (c) Pervasive Displays Inc., 2021-2025
+/// @copyright (c) Etigues, 2010-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
 ///
@@ -36,7 +36,7 @@
 ///
 /// @brief Library release number
 ///
-#define PDLS_COMMON_RELEASE 921
+#define PDLS_COMMON_RELEASE 922
 
 ///
 /// @brief Edition
@@ -51,14 +51,14 @@
 ///
 #include "hV_HAL_Peripherals.h"
 
-#if (hV_HAL_PERIPHERALS_RELEASE < 902)
-#error Required hV_HAL_PERIPHERALS_RELEASE 902
+#if (hV_HAL_PERIPHERALS_RELEASE < 922)
+#error Required hV_HAL_PERIPHERALS_RELEASE 922
 #endif // hV_HAL_PERIPHERALS_RELEASE
 
 #include "hV_Configuration.h"
 
-#if (hV_HAL_PERIPHERALS_RELEASE < 902)
-#error Required hV_HAL_PERIPHERALS_RELEASE 902
+#if (hV_CONFIGURATION_RELEASE < 902)
+#error Required hV_CONFIGURATION_RELEASE 902
 #endif // hV_HAL_PERIPHERALS_RELEASE
 
 // Utilities
