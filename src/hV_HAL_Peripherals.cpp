@@ -420,7 +420,6 @@ void hV_HAL_Serial_crlf()
 //
 // === Log system
 //
-
 void hV_HAL_log(uint16_t level, const char * format, ...)
 {
     char buffer[128] = {0x00};
