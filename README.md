@@ -21,7 +21,7 @@ The **PDLS_Common** library provides a light hardware abstraction layer with C-l
 
 ## Support
 
-* Please refer to the [Support](https://docs.pervasivedisplays.com/knowledge/Software/Volume5/) page with FAQ, technical notes and reference designs.
+* Please refer to the [Support](https://docs.pervasivedisplays.com/knowledge/Software/Volume5/index.html) page with FAQ, technical notes and reference designs.
 
 * Report issues at the [PDLS_Common](https://github.com/pervasivedisplays/PDLS_Common/issues) repository.
 
@@ -50,7 +50,7 @@ Software
 Hardware
 
 * Pervasive Displays EPD Extension Kit Gen 3 (EXT3 or EXT3.1)
-* ![](https://img.shields.io/badge/-New-orange) Pervasive Displays EPD Extension Kit Gen 4 (EXT4)
+* ![](https://img.shields.io/badge/-NEW-orange) Pervasive Displays EPD Extension Kit Gen 4 (EXT4)
 * See the requirements for the PDLS Basic edition
 
 ## Licence
