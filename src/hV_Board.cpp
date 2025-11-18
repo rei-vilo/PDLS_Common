@@ -20,6 +20,7 @@
 // Release 900: Added new driver library
 // Release 900: Consolidated constants
 // Release 906: Added check for panel power
+// Release 1000: Unified boards definition
 //
 
 // Library header
@@ -128,39 +129,38 @@ void hV_Board::b_resume()
             hV_HAL_GPIO_define(b_pin.cardCS, INPUT);
         }
 
-#if (USE_EXT_BOARD == BOARD_EXT4) // EXT4 GPIOs
-
-        if (b_pin.button != NOT_CONNECTED) // generic
+        if (b_pin.scope == BOARD_EXT4)
         {
-            hV_HAL_GPIO_define(b_pin.button, INPUT_PULLUP);
-        }
+            if (b_pin.button != NOT_CONNECTED) // generic
+            {
+                hV_HAL_GPIO_define(b_pin.button, INPUT_PULLUP);
+            }
 
-        if (b_pin.ledData != NOT_CONNECTED) // generic
-        {
-            hV_HAL_GPIO_define(b_pin.ledData, OUTPUT);
-        }
+            if (b_pin.ledData != NOT_CONNECTED) // generic
+            {
+                hV_HAL_GPIO_define(b_pin.ledData, OUTPUT);
+            }
 
-        if (b_pin.nfcFD != NOT_CONNECTED) // generic
-        {
-            hV_HAL_GPIO_define(b_pin.nfcFD, INPUT);
-        }
+            if (b_pin.nfcFD != NOT_CONNECTED) // generic
+            {
+                hV_HAL_GPIO_define(b_pin.nfcFD, INPUT);
+            }
 
-        if (b_pin.imuInt1 != NOT_CONNECTED) // generic
-        {
-            hV_HAL_GPIO_define(b_pin.imuInt1, INPUT);
-        }
+            if (b_pin.imuInt1 != NOT_CONNECTED) // generic
+            {
+                hV_HAL_GPIO_define(b_pin.imuInt1, INPUT);
+            }
 
-        if (b_pin.imuInt2 != NOT_CONNECTED) // generic
-        {
-            hV_HAL_GPIO_define(b_pin.imuInt2, INPUT);
-        }
+            if (b_pin.imuInt2 != NOT_CONNECTED) // generic
+            {
+                hV_HAL_GPIO_define(b_pin.imuInt2, INPUT);
+            }
 
-        if (b_pin.weatherInt != NOT_CONNECTED) // generic
-        {
-            hV_HAL_GPIO_define(b_pin.weatherInt, INPUT);
-        }
-
-#endif // USE_EXT_BOARD
+            if (b_pin.weatherInt != NOT_CONNECTED) // generic
+            {
+                hV_HAL_GPIO_define(b_pin.weatherInt, INPUT);
+            }
+        } // BOARD_EXT4
 
         b_fsmPowerScreen |= FSM_GPIO_MASK;
     }

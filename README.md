@@ -8,8 +8,6 @@ The Pervasive Displays Library Suite is specifically designed for the [Pervasive
 
 ![](img/Pervasive_Displays_logo_gray.png)
 
-Release 9 inaugurates a new structure based on drivers developed by Pervasive Displays.
-
 ## Features
 
 The **PDLS_Common** library provides a light hardware abstraction layer with C-like syntax for C and C++ SDKs. It is required by the drivers and the PDLS library.

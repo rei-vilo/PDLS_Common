@@ -7,8 +7,8 @@
 ///
 /// * Edition: Advanced
 ///
-/// @date 21 Feb 2025
-/// @version 906
+/// @date 21 Nov 2025
+/// @version 1000
 ///
 /// @copyright (c) Pervasive Displays Inc., 2021-2025
 /// @copyright (c) Etigues, 2010-2025
@@ -37,29 +37,29 @@
 // SDK
 #include "hV_HAL_Peripherals.h"
 
-#if (hV_HAL_PERIPHERALS_RELEASE < 902)
-#error Required hV_HAL_PERIPHERALS_RELEASE 902
+#if (hV_HAL_PERIPHERALS_RELEASE < 1000)
+#error Required hV_HAL_PERIPHERALS_RELEASE 1000
 #endif // hV_HAL_PERIPHERALS_RELEASE
 
 // Boards
 #include "hV_List_Boards.h"
 
-#if (hV_LIST_BOARDS_RELEASE < 902)
-#error Required hV_LIST_BOARDS_RELEASE 902
+#if (hV_LIST_BOARDS_RELEASE < 1000)
+#error Required hV_LIST_BOARDS_RELEASE 1000
 #endif // hV_LIST_BOARDS_RELEASE
 
 // Constants
 #include "hV_List_Constants.h"
 
-#if (hV_LIST_CONSTANTS_RELEASE < 902)
-#error Required hV_LIST_CONSTANTS_RELEASE 902
+#if (hV_LIST_CONSTANTS_RELEASE < 1000)
+#error Required hV_LIST_CONSTANTS_RELEASE 1000
 #endif // hV_LIST_CONSTANTS_RELEASE
 
 #ifndef hV_BOARD_RELEASE
 ///
 /// @brief Library release number
 ///
-#define hV_BOARD_RELEASE 902
+#define hV_BOARD_RELEASE 1000
 
 // Objects
 //

@@ -8,6 +8,7 @@
 //
 // Created by Rei Vilo, 01 Jun 2013
 //
+// Copyright (c) Pervasive Displays Inc., 2021-2025,
 // Copyright (c) Etigues, 2010-2025
 // Licence All rights reserved
 // For exclusive use with Pervasive Displays screens
@@ -30,6 +31,10 @@
 // Release 907: Increased buffer size
 // Release 908: Added ISO translations for UTF ' and "
 // Release 909: Added GridXY class
+// Release 1000: Added support for UTF-8 strings
+// Release 1000: Added support for UTF-16 strings
+// Release 1000: Added support for 16-bit fonts
+// Release 1000: Added UTF-16 characters traceability
 //
 
 // Library header
@@ -43,6 +48,7 @@ char bufferOut[BUFFER_LENGTH];
 
 STRING_TYPE formatString(const char * format, ...)
 {
+    // --- Option 1
     char bufferWork[BUFFER_LENGTH] = {0};
     // memset(&bufferWork, 0x00, sizeof(bufferOut));
 
@@ -59,50 +65,103 @@ STRING_TYPE formatString(const char * format, ...)
 
 STRING_TYPE utf2iso(STRING_TYPE s)
 {
-    uint8_t c;
+#if (STRING_MODE == USE_STRING_OBJECT)
 
-    s.toCharArray(bufferIn, s.length() + 1);
+    return s;
+
+#elif (STRING_MODE == USE_CHAR_ARRAY)
 
     memset(&bufferOut, 0x00, sizeof(bufferOut));
+    strncpy(bufferOut, s, sizeof(bufferOut) - 1);
+    return bufferOut;
 
-    for (uint8_t i = 0; i < strlen(bufferIn); i++)
+#endif // STRING_MODE
+}
+
+//
+// --- Viewer edition only
+//
+
+//
+// --- End of Viewer edition
+//
+
+uint16_t utf8to16(STRING_CONST_TYPE inUTF8, STRING16_BYREF_TYPE outUTF16, uint8_t limit)
+{
+    uint16_t char16;
+    uint16_t i16 = 0;
+
+    memset(bufferIn, 0x00, sizeof(bufferIn));
+    inUTF8.toCharArray(bufferIn, BUFFER_LENGTH);
+    const char * _work8 = bufferIn;
+
+    if (strlen(_work8) == 0)
     {
-        c = (uint8_t)bufferIn[i];
-
-        if (c < 0x80)
-        {
-            bufferOut[strlen(bufferOut)] = c;
-        }
-        else if (c == 0xc3)
-        {
-            bufferOut[strlen(bufferOut)] = (bufferIn[++i] + 64);
-        }
-        else if (c == 0xc2)
-        {
-            bufferOut[strlen(bufferOut)] = bufferIn[++i];
-        }
-        else if (c == 0xe2)
-        {
-            if ((bufferIn[i + 1] == 0x82) && (bufferIn[i + 2] == 0xac))
-            {
-                bufferOut[strlen(bufferOut)] = 0x80;
-                i += 2;
-            }
-            if ((bufferIn[i + 1] == 0x89) && (bufferIn[i + 2] == 0x88))
-            {
-                bufferOut[strlen(bufferOut)] = 0x27;
-                i += 2;
-            }
-            if ((bufferIn[i + 1] == 0x80) && (bufferIn[i + 2] == 0x9d))
-            {
-                bufferOut[strlen(bufferOut)] = 0x22;
-                i += 2;
-            }
-        }
+        outUTF16[0] = 0x0000;
+        return 0;
     }
 
-    return String(bufferOut);
+    bool flag = true;
+
+    while ((*_work8 != 0) and flag)
+    {
+        // unsigned char char8 = static_cast<unsigned char>(*_work8);
+        uint8_t char8 = (*_work8);
+        if (char8 <= 0x7f)
+        {
+            char16 = char8;
+        }
+        else if (char8 <= 0xbf)
+        {
+            char16 = (char16 << 6) | (char8 & 0x3f);
+        }
+        else if (char8 <= 0xdf)
+        {
+            char16 = char8 & 0x1f;
+        }
+        else if (char8 <= 0xef)
+        {
+            char16 = char8 & 0x0f;
+        }
+        else
+        {
+            char16 = char8 & 0x07;
+        }
+        ++_work8;
+
+        if (((*_work8 & 0xc0) != 0x80) and (char16 <= 0xffff))
+        {
+            // Checks specific to Basic edition
+            if (char16 == 0x20ac)
+            {
+                char16 = 0x80; // Specific Font_Terminal code
+            }
+            else if (char16 > 0x00ff)
+            {
+                char16 = 0xb7; // Code for non-supported characters
+            }
+            outUTF16[i16++] = char16;
+        }
+    }
+    outUTF16[i16] = 0x0000; // Null-terminate the output array
+    return i16;
 }
+
+//
+// --- Viewer edition only
+//
+
+//
+// --- End of Viewer edition
+//
+
+//
+// --- Advanced edition
+//
+
+//
+// --- End of Advanced edition
+//
 
 GridXY::GridXY()
 {
@@ -135,7 +194,6 @@ uint16_t GridXY::dY(uint16_t i)
 {
     return (i * _dy);
 }
-
 
 uint16_t GridXY::x(uint16_t i)
 {

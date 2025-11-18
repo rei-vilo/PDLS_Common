@@ -33,6 +33,7 @@
 // Release 911: Added delay on I²C write and read transfer
 // Release 911: Added overtime check on I²C write and read transfer
 // Release 922: Improved 3-wire SPI stability
+// Release 922: Ported to C
 //
 
 // Library header
@@ -420,6 +421,7 @@ void hV_HAL_Serial_crlf()
 //
 // === Log system
 //
+
 void hV_HAL_log(uint16_t level, const char * format, ...)
 {
     char buffer[128] = {0x00};

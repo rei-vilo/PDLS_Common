@@ -18,13 +18,12 @@
 /// * 10. String object for basic edition
 /// * 11. Set storage mode, not implemented
 /// * 12. Set debug options, not implemented
-/// * 13. Select EXT board
 ///
-/// @date 21 Jun 2025
-/// @version 910
+/// @date 21 Nov 2025
+/// @version 1000
 ///
-/// @copyright (c) Etigues, 2010-2025
 /// @copyright (c) Pervasive Displays Inc., 2021-2025
+/// @copyright (c) Etigues, 2010-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
 ///
@@ -51,7 +50,7 @@
 ///
 /// @brief Release
 ///
-#define hV_LIST_OPTIONS_RELEASE 910
+#define hV_LIST_OPTIONS_RELEASE 1000
 
 ///
 /// @name 1- List of supported Pervasive Displays screens
@@ -66,10 +65,10 @@
 ///
 /// @name 3- Set font mode
 /// @details From header files or from external flash
-/// * Basic edition: Terminal font
-/// * Evaluation edition: DejaVu font as header
-/// * Commercial edition: DejaVu font as either header or external SPI Flash
-/// * Viewer edition: DejaVu font as header
+/// * Basic edition: 8-bit Terminal font
+/// * Evaluation edition: 16-bit Noto font as header
+/// * Commercial edition: 16-bit Noto font as header
+/// * Viewer edition: 16-bit Noto font as header
 ///
 /// @note USE_FONT_HEADER requires addFont()
 /// @note Font Manager requires USE_FONT_HEADER
@@ -210,11 +209,12 @@
 /// @note Corresponding boards defined at hV_List_Boards.h
 ///
 /// @{
-#define BOARD_EXT2 2 ///< EXT2 board
-#define BOARD_EXT3 3 ///< EXT3 and EXT3.1 boards
-#define BOARD_EXT4 4 ///< EXT4 board
+#define BOARD_EXT2 0x20 ///< EXT2 board
+#define BOARD_EXT3 0x30 ///< EXT3 and EXT3.1 boards
+#define BOARD_EXT4 0x40 ///< EXT4 board
 
-#define USE_EXT_BOARD BOARD_EXT3 ///< Selected board
+/// @deprecated Check pins_t.scope instead (10.0.0)
+// #define USE_EXT_BOARD BOARD_EXT3 ///< Selected board
 /// @}
 
 #endif // hV_LIST_OPTIONS_RELEASE

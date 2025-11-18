@@ -5,9 +5,10 @@
 /// @details Project Pervasive Displays Library Suite
 /// @n Based on highView technology
 ///
-/// @date 21 Jun 2025
-/// @version 910
+/// @date 21 Nov 2025
+/// @version 1000
 ///
+/// @copyright (c) Pervasive Displays Inc., 2021-2025
 /// @copyright (c) Etigues, 2010-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
@@ -34,36 +35,36 @@
 // SDK
 #include "hV_HAL_Peripherals.h"
 
-#if (hV_HAL_PERIPHERALS_RELEASE < 902)
-#error Required hV_HAL_PERIPHERALS_RELEASE 902
+#if (hV_HAL_PERIPHERALS_RELEASE < 1000)
+#error Required hV_HAL_PERIPHERALS_RELEASE 1000
 #endif // hV_HAL_PERIPHERALS_RELEASE
 
 // Boards
 #include "hV_List_Boards.h"
 
-#if (hV_LIST_BOARDS_RELEASE < 902)
-#error Required hV_LIST_BOARDS_RELEASE 902
+#if (hV_LIST_BOARDS_RELEASE < 1000)
+#error Required hV_LIST_BOARDS_RELEASE 1000
 #endif // hV_LIST_BOARDS_RELEASE
 
 // Types
 #include "hV_List_Types.h"
 
-#if (hV_LIST_TYPES_RELEASE < 902)
-#error Required hV_LIST_TYPES_RELEASE 902
+#if (hV_LIST_TYPES_RELEASE < 1000)
+#error Required hV_LIST_TYPES_RELEASE 1000
 #endif // hV_LIST_TYPES_RELEASE
 
 // Constants
 #include "hV_List_Constants.h"
 
-#if (hV_LIST_CONSTANTS_RELEASE < 902)
-#error Required hV_LIST_CONSTANTS_RELEASE 902
+#if (hV_LIST_CONSTANTS_RELEASE < 1000)
+#error Required hV_LIST_CONSTANTS_RELEASE 1000
 #endif // hV_LIST_CONSTANTS_RELEASE
 
 #ifndef hV_UTILITIES_RELEASE
 ///
 /// @brief Library release number
 ///
-#define hV_UTILITIES_RELEASE 910
+#define hV_UTILITIES_RELEASE 1000
 
 ///
 /// @name Orientation constants
@@ -95,11 +96,28 @@ struct touch_t
 /// @param s UTF-8 string, input
 /// @return ISO-8859-1 string, output
 ///
+/// @deprecated No longer required. Use UTF-8 instead with gText(), Graphics and GUI elements (10.0.0)
+///
 /// @see The Unicode Consortium. The Unicode Standard, Version 6.2.0,
 /// (Mountain View, CA: The Unicode Consortium, 2012. ISBN 978-1-936213-07-8)
 /// http://www.unicode.org/versions/Unicode6.2.0/
 ///
 STRING_TYPE utf2iso(STRING_TYPE s);
+
+///
+/// @brief UTF-8 to UTF-16 converter
+/// @param[in] inUTF8 UTF-8 string, input
+/// @param[out] outUTF16 UTF-16 string, output
+/// @param[in] limit maximum number of characters converted, `0` = no check
+/// @return number of UTF-16 characters converted
+///
+/// @see
+/// * The Unicode Consortium. The Unicode Standard, Version 6.2.0,
+/// (Mountain View, CA: The Unicode Consortium, 2012. ISBN 978-1-936213-07-8)
+/// http://www.unicode.org/versions/Unicode6.2.0/
+/// * https://stackoverflow.com/a/148766/1190049
+///
+uint16_t utf8to16(STRING_CONST_TYPE inUTF8, STRING16_BYREF_TYPE outUTF16, uint8_t limit = 0);
 
 ///
 /// @brief Format string or char array
@@ -111,6 +129,14 @@ STRING_TYPE utf2iso(STRING_TYPE s);
 /// @see http://www.cplusplus.com/reference/cstdio/printf/?kw=printf for codes
 ///
 STRING_TYPE formatString(const char * format, ...);
+
+//
+// --- Advanced edition
+//
+
+//
+// --- End of Advanced edition
+//
 
 /// @}
 
@@ -210,7 +236,6 @@ class GridXY
 //
 
 /// @}
-
 //
 // --- End of Advanced edition
 //

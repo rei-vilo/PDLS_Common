@@ -18,11 +18,11 @@
 /// * 10. String object of char array options for string.
 /// * 11. Set storage mode, serial console by default
 /// * 12. Set debug options
-/// * 13. Select EXT board
 ///
-/// @date 21 Jan 2025
-/// @version 902
+/// @date 21 Nov 2025
+/// @version 1000
 ///
+/// @copyright (c) Pervasive Displays Inc., 2021-2025
 /// @copyright (c) Etigues, 2010-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
@@ -53,8 +53,8 @@
 ///
 #include "hV_Board.h"
 
-#if (hV_BOARD_RELEASE < 902)
-#error Required hV_BOARD_RELEASE 902
+#if (hV_BOARD_RELEASE < 1000)
+#error Required hV_BOARD_RELEASE 1000
 #endif // hV_BOARD_RELEASE
 
 ///
@@ -64,8 +64,8 @@
 ///
 #include "hV_List_Constants.h"
 
-#if (hV_LIST_CONSTANTS_RELEASE < 902)
-#error Required hV_LIST_CONSTANTS_RELEASE 902
+#if (hV_LIST_CONSTANTS_RELEASE < 1000)
+#error Required hV_LIST_CONSTANTS_RELEASE 1000
 #endif // hV_LIST_CONSTANTS_RELEASE
 
 ///
@@ -75,15 +75,15 @@
 ///
 #include "hV_List_Types.h"
 
-#if (hV_LIST_TYPES_RELEASE < 902)
-#error Required hV_LIST_TYPES_RELEASE 902
+#if (hV_LIST_TYPES_RELEASE < 1000)
+#error Required hV_LIST_TYPES_RELEASE 1000
 #endif // hV_LIST_TYPES_RELEASE
 
 #ifndef hV_CONFIGURATION_RELEASE
 ///
 /// @brief Release
 ///
-#define hV_CONFIGURATION_RELEASE 902
+#define hV_CONFIGURATION_RELEASE 1000
 
 ///
 /// @brief Licensee
@@ -97,8 +97,8 @@
 ///
 #include "hV_List_Boards.h"
 
-#if (hV_LIST_BOARDS_RELEASE < 902)
-#error Required hV_LIST_BOARDS_RELEASE 902
+#if (hV_LIST_BOARDS_RELEASE < 1000)
+#error Required hV_LIST_BOARDS_RELEASE 1000
 #endif // hV_LIST_BOARDS_RELEASE
 
 ///
@@ -113,14 +113,13 @@
 /// * 10. String object of char array options for string.
 /// * 11. Set storage mode, serial console by default
 /// * 12. Set debug options
-/// * 13. Select EXT board
 ///
 /// @see hV_List_Options.h
 ///
 #include "hV_List_Options.h"
 
-#if (hV_LIST_OPTIONS_RELEASE < 902)
-#error Required hV_LIST_OPTIONS_RELEASE 900
+#if (hV_LIST_OPTIONS_RELEASE < 1000)
+#error Required hV_LIST_OPTIONS_ERELEASE 1000
 #endif // hV_LIST_OPTIONS_RELEASE
 
 #endif // hV_CONFIGURATION_RELEASE

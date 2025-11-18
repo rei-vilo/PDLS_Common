@@ -4,8 +4,8 @@
 ///
 /// @details Based on highView technology
 ///
-/// @date 21 Oct 2025
-/// @version 922
+/// @date 21 Nov 2025
+/// @version 1000
 ///
 /// @copyright (c) Etigues, 2010-2025
 /// @copyright All rights reserved
@@ -54,7 +54,7 @@
 ///
 /// @brief Release
 ///
-#define hV_HAL_PERIPHERALS_RELEASE 922
+#define hV_HAL_PERIPHERALS_RELEASE 1000
 
 ///
 /// @brief SDK library
@@ -67,8 +67,8 @@
 // // Options
 // #include "hV_List_Options.h"
 //
-// #if (hV_LIST_OPTIONS_RELEASE < 902)
-// #error Required hV_LIST_OPTIONS_ERELEASE 900
+// #if (hV_LIST_OPTIONS_RELEASE < 1000)
+// #error Required hV_LIST_OPTIONS_ERELEASE 1000
 // #endif // hV_LIST_OPTIONS_RELEASE
 
 ///
