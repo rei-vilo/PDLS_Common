@@ -410,6 +410,17 @@ uint8_t hV_HAL_Wire_transfer(uint8_t address, uint8_t * dataWrite, size_t sizeWr
 //
 // === Serial section
 //
+void hV_HAL_Serial_printf(const char * format, ...)
+{
+    char buffer[256];
+    memset(&buffer, 0x00, sizeof(buffer));
+    va_list args;
+    va_start(args, format);
+    vsnprintf(buffer, 255, format, args);
+    va_end(args);
+    hV_HAL_Serial.print(buffer);
+}
+
 void hV_HAL_Serial_crlf()
 {
     hV_HAL_Serial.println();
@@ -424,14 +435,14 @@ void hV_HAL_Serial_crlf()
 
 void hV_HAL_log(uint16_t level, const char * format, ...)
 {
-    char buffer[128] = {0x00};
+    char buffer[256] = {0x00};
     // memset(&buffer, 0x00, sizeof(buffer));
 
     // Content
     char * frame = &buffer[strlen(buffer)];
     va_list args;
     va_start(args, format);
-    vsnprintf(frame, 127, format, args);
+    vsnprintf(frame, 255, format, args);
     va_end(args);
 
     hV_HAL_Serial.print("hV _ ");

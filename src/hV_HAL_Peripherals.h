@@ -166,6 +166,13 @@ void hV_HAL_GPIO_waitFor(uint8_t pin, uint8_t state);
 /// @{
 
 ///
+/// @brief Format and send to console
+/// @param format see https://www.cplusplus.com/reference/cstdio/printf/ for tokens
+/// @param args explicit variadic list required for hV_HAL_Serial_printf()
+///
+void hV_HAL_Serial_printf(const char * format, ...);
+
+///
 /// @brief Print carriage-return line-feed
 ///
 void hV_HAL_Serial_crlf(void);
