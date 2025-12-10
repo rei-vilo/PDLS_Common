@@ -11,10 +11,11 @@
 ///     * 2.2 Other boards for EXT3
 ///     * 2.3 Recommended boards for EPDK-Matter and EXT4
 ///     * 2.4 Other boards for EXT4
-///     * 2.5 Deprecated boards
+///     * 2.5 Recommended boards for Viewer
+///     * 2.6 Deprecated boards
 ///
-/// @date 21 Nov 2025
-/// @version 1000
+/// @date 21 Dec 2025
+/// @version 1001
 ///
 /// @copyright (c) Pervasive Displays Inc., 2021-2025
 /// @copyright (c) Etigues, 2010-2025
@@ -115,7 +116,22 @@ struct pins_t
 };
 
 ///
-/// @name 2.1 Recommended boards for EXT3
+/// @brief Synonym for pins_t
+///
+#define Board_EXT pins_t
+
+///
+/// @name List of EXT boards
+///
+/// @{
+#define BOARD_EXT2 0x20 ///< EXT2 board
+#define BOARD_EXT3 0x30 ///< EXT3 and EXT3.1 boards
+#define BOARD_EXT4 0x40 ///< EXT4 board
+/// @}
+
+
+///
+/// @name 2.1 Recommended boards for EXT3 and EXT3.1
 /// @{
 
 ///
@@ -149,11 +165,11 @@ const pins_t boardRaspberryPiPico_RP2040 =
     .cardDetect = NOT_CONNECTED, ///< External SD-card board
 
     // EXT4 specific
-    .button = NOT_CONNECTED, // EXT4 pin 12 Grey
-    .ledData = NOT_CONNECTED, // EXT4 pin 13 Violet WS2813C
-    .nfcFD = NOT_CONNECTED, // EXT4 pin 17 Orange NFC NT3H2111_2211 !Field detect, I2C address = 0x55
-    .imuInt1 = NOT_CONNECTED, // EXT4 pin 18 Red LIS2DH12 !INT2, I2C address = 0x19
-    .imuInt2 = NOT_CONNECTED, // EXT4 pin 19 Brown LIS2DH12 !INT1, I2C address = 0x19
+    .button = NOT_CONNECTED, ///< EXT4 pin 12 Grey
+    .ledData = NOT_CONNECTED, ///< EXT4 pin 13 Violet WS2813C
+    .nfcFD = NOT_CONNECTED, ///< EXT4 pin 17 Orange NFC NT3H2111_2211 !Field detect, I2C address = 0x55
+    .imuInt1 = NOT_CONNECTED, ///< EXT4 pin 18 Red LIS2DH12 !INT2, I2C address = 0x19
+    .imuInt2 = NOT_CONNECTED, ///< EXT4 pin 19 Brown LIS2DH12 !INT1, I2C address = 0x19
     .weatherInt = NOT_CONNECTED // EXT4 pin 20 Black HDC2080 !INT, I2C address = 0x40
     // End of EXT4 specific
 };
@@ -198,11 +214,11 @@ const pins_t boardArduinoNanoMatter =
     .cardDetect = NOT_CONNECTED, ///< External SD-card board
 
     // EXT4 specific
-    .button = NOT_CONNECTED, // EXT4 pin 12 Grey
-    .ledData = NOT_CONNECTED, // EXT4 pin 13 Violet WS2813C
-    .nfcFD = NOT_CONNECTED, // EXT4 pin 17 Orange NFC NT3H2111_2211 !Field detect, I2C address = 0x55
-    .imuInt1 = NOT_CONNECTED, // EXT4 pin 18 Red LIS2DH12 !INT2, I2C address = 0x19
-    .imuInt2 = NOT_CONNECTED, // EXT4 pin 19 Brown LIS2DH12 !INT1, I2C address = 0x19
+    .button = NOT_CONNECTED, ///< EXT4 pin 12 Grey
+    .ledData = NOT_CONNECTED, ///< EXT4 pin 13 Violet WS2813C
+    .nfcFD = NOT_CONNECTED, ///< EXT4 pin 17 Orange NFC NT3H2111_2211 !Field detect, I2C address = 0x55
+    .imuInt1 = NOT_CONNECTED, ///< EXT4 pin 18 Red LIS2DH12 !INT2, I2C address = 0x19
+    .imuInt2 = NOT_CONNECTED, ///< EXT4 pin 19 Brown LIS2DH12 !INT1, I2C address = 0x19
     .weatherInt = NOT_CONNECTED // EXT4 pin 20 Black HDC2080 !INT, I2C address = 0x40
     // End of EXT4 specific
 };
@@ -231,11 +247,11 @@ const pins_t boardFeatherNRF52840 =
     .cardDetect = NOT_CONNECTED, ///< External SD-card board
 
     // EXT4 specific
-    .button = NOT_CONNECTED, // EXT4 pin 12 Grey
-    .ledData = NOT_CONNECTED, // EXT4 pin 13 Violet WS2813C
-    .nfcFD = NOT_CONNECTED, // EXT4 pin 17 Orange NFC NT3H2111_2211 !Field detect, I2C address = 0x55
-    .imuInt1 = NOT_CONNECTED, // EXT4 pin 18 Red LIS2DH12 !INT2, I2C address = 0x19
-    .imuInt2 = NOT_CONNECTED, // EXT4 pin 19 Brown LIS2DH12 !INT1, I2C address = 0x19
+    .button = NOT_CONNECTED, ///< EXT4 pin 12 Grey
+    .ledData = NOT_CONNECTED, ///< EXT4 pin 13 Violet WS2813C
+    .nfcFD = NOT_CONNECTED, ///< EXT4 pin 17 Orange NFC NT3H2111_2211 !Field detect, I2C address = 0x55
+    .imuInt1 = NOT_CONNECTED, ///< EXT4 pin 18 Red LIS2DH12 !INT2, I2C address = 0x19
+    .imuInt2 = NOT_CONNECTED, ///< EXT4 pin 19 Brown LIS2DH12 !INT1, I2C address = 0x19
     .weatherInt = NOT_CONNECTED // EXT4 pin 20 Black HDC2080 !INT, I2C address = 0x40
     // End of EXT4 specific
 };
@@ -273,11 +289,11 @@ const pins_t boardESP32DevKitC =
     .cardDetect = NOT_CONNECTED, ///< External SD-card board
 
     // EXT4 specific
-    .button = NOT_CONNECTED, // EXT4 pin 12 Grey
-    .ledData = NOT_CONNECTED, // EXT4 pin 13 Violet WS2813C
-    .nfcFD = NOT_CONNECTED, // EXT4 pin 17 Orange NFC NT3H2111_2211 !Field detect, I2C address = 0x55
-    .imuInt1 = NOT_CONNECTED, // EXT4 pin 18 Red LIS2DH12 !INT2, I2C address = 0x19
-    .imuInt2 = NOT_CONNECTED, // EXT4 pin 19 Brown LIS2DH12 !INT1, I2C address = 0x19
+    .button = NOT_CONNECTED, ///< EXT4 pin 12 Grey
+    .ledData = NOT_CONNECTED, ///< EXT4 pin 13 Violet WS2813C
+    .nfcFD = NOT_CONNECTED, ///< EXT4 pin 17 Orange NFC NT3H2111_2211 !Field detect, I2C address = 0x55
+    .imuInt1 = NOT_CONNECTED, ///< EXT4 pin 18 Red LIS2DH12 !INT2, I2C address = 0x19
+    .imuInt2 = NOT_CONNECTED, ///< EXT4 pin 19 Brown LIS2DH12 !INT1, I2C address = 0x19
     .weatherInt = NOT_CONNECTED // EXT4 pin 20 Black HDC2080 !INT, I2C address = 0x40
     // End of EXT4 specific
 };
@@ -315,17 +331,19 @@ const pins_t boardArduinoNanoMatter_EXT4 =
     .cardDetect = NOT_CONNECTED, ///< External SD-card board
 
     // EXT4 specific
-    .button = 3, // EXT4 pin 12 Grey -> D3
-    .ledData = 4, // EXT4 pin 13 Violet WS2813C -> D4
+    .button = 3, ///< EXT4 pin 12 Grey -> D3
+    .ledData = 4, ///< EXT4 pin 13 Violet WS2813C -> D4
     // ///< EXT4 pin 14 Blue -> I2C SDA
     // ///< EXT4 pin 15 Green -> I2C SCL
     // ///< EXT4 pin 16 Yellow, see above
-    .nfcFD = 17, // EXT4 pin 17 Orange NFC NT3H2111_2211 !Field detect, I2C address = 0x55 -> A3
-    .imuInt1 = 16, // EXT4 pin 18 Red LIS2DH12 !INT1, I2C address = 0x19 -> A2
-    .imuInt2 = 15, // EXT4 pin 19 Brown LIS2DH12 !INT2, I2C address = 0x19 -> A1
-    .weatherInt = 14, // EXT4 pin 20 Black HDC2080 !INT, I2C address = 0x40 -> A0
+    .nfcFD = 17, ///< EXT4 pin 17 Orange NFC NT3H2111_2211 !Field detect, I2C address = 0x55 -> A3
+    .imuInt1 = 16, ///< EXT4 pin 18 Red LIS2DH12 !INT1, I2C address = 0x19 -> A2
+    .imuInt2 = 15, ///< EXT4 pin 19 Brown LIS2DH12 !INT2, I2C address = 0x19 -> A1
+    .weatherInt = 14, ///< EXT4 pin 20 Black HDC2080 !INT, I2C address = 0x40 -> A0
     // End of EXT4 specific
 };
+
+/// @}
 
 ///
 /// @name 2.4 Other boards for EXT4
@@ -355,14 +373,14 @@ const pins_t boardSiLabsBG24Explorer_EXT4 =
     .cardDetect = NOT_CONNECTED, ///< External SD-card board
 
     // EXT4 specific
-    .button = 11, // EXT4 pin 12 Grey -> PB01 A4 11
-    .ledData = 12, // EXT4 pin 13 Violet WS2813C -> PB02 A5 12
+    .button = 11, ///< EXT4 pin 12 Grey -> PB01 A4 11
+    .ledData = 12, ///< EXT4 pin 13 Violet WS2813C -> PB02 A5 12
     // ///< EXT4 pin 14 Blue -> I2C SDA
     // ///< EXT4 pin 15 Green -> I2C SCL
     // ///< EXT4 pin 16 Yellow, see above
-    .nfcFD = NOT_CONNECTED, // EXT4 pin 17 Orange NFC NT3H2111_2211 !Field detect, I2C address = 0x55
-    .imuInt1 = NOT_CONNECTED, // EXT4 pin 18 Red LIS2DH12 !INT1, I2C address = 0x19
-    .imuInt2 = NOT_CONNECTED, // EXT4 pin 19 Brown LIS2DH12 !INT2, I2C address = 0x19
+    .nfcFD = NOT_CONNECTED, ///< EXT4 pin 17 Orange NFC NT3H2111_2211 !Field detect, I2C address = 0x55
+    .imuInt1 = NOT_CONNECTED, ///< EXT4 pin 18 Red LIS2DH12 !INT1, I2C address = 0x19
+    .imuInt2 = NOT_CONNECTED, ///< EXT4 pin 19 Brown LIS2DH12 !INT2, I2C address = 0x19
     .weatherInt = NOT_CONNECTED // EXT4 pin 20 Black HDC2080 !INT, I2C address = 0x40
     // End of EXT4 specific
 };
@@ -393,14 +411,14 @@ const pins_t boardRaspberryPiPico_RP2040_EXT4 =
     .cardDetect = NOT_CONNECTED, ///< External SD-card board
 
     // EXT4 specific
-    .button = 15, // EXT4 pin 12 Grey -> GP15
-    .ledData = 2, // EXT4 pin 13 Violet WS2813C -> GP2
+    .button = 15, ///< EXT4 pin 12 Grey -> GP15
+    .ledData = 2, ///< EXT4 pin 13 Violet WS2813C -> GP2
     // ///< EXT4 pin 14 Blue -> I2C SDA
     // ///< EXT4 pin 15 Green -> I2C SCL
     // ///< EXT4 pin 16 Yellow, see above
-    .nfcFD = 7, // EXT4 pin 17 Orange NFC NT3H2111_2211 !Field detect, I2C address = 0x55 -> GP7
-    .imuInt1 = 8, // EXT4 pin 18 Red LIS2DH12 !INT2, I2C address = 0x19 -> GP8
-    .imuInt2 = 9, // EXT4 pin 19 Brown LIS2DH12 !INT1, I2C address = 0x19 -> GP9
+    .nfcFD = 7, ///< EXT4 pin 17 Orange NFC NT3H2111_2211 !Field detect, I2C address = 0x55 -> GP7
+    .imuInt1 = 8, ///< EXT4 pin 18 Red LIS2DH12 !INT2, I2C address = 0x19 -> GP8
+    .imuInt2 = 9, ///< EXT4 pin 19 Brown LIS2DH12 !INT1, I2C address = 0x19 -> GP9
     .weatherInt = 3 // EXT4 pin 20 Black HDC2080 !INT, I2C address = 0x40 -> GP3
     // End of EXT4 specific
 };
@@ -408,7 +426,13 @@ const pins_t boardRaspberryPiPico_RP2040_EXT4 =
 /// @}
 
 ///
-/// @name 2.5 Deprecated boards
+/// @name 2.5 Recommended boards for Viewer
+/// @{
+
+/// @}
+
+///
+/// @name 2.6 Deprecated boards
 /// @{
 
 ///
@@ -438,11 +462,11 @@ const pins_t boardParticlePhoton2 =
     .cardDetect = NOT_CONNECTED, ///< External SD-card board
 
     // EXT4 specific
-    .button = NOT_CONNECTED, // EXT4 pin 12 Grey
-    .ledData = NOT_CONNECTED, // EXT4 pin 13 Violet WS2813C
-    .nfcFD = NOT_CONNECTED, // EXT4 pin 17 Orange NFC NT3H2111_2211 !Field detect, I2C address = 0x55
-    .imuInt1 = NOT_CONNECTED, // EXT4 pin 18 Red LIS2DH12 !INT2, I2C address = 0x19
-    .imuInt2 = NOT_CONNECTED, // EXT4 pin 19 Brown LIS2DH12 !INT1, I2C address = 0x19
+    .button = NOT_CONNECTED, ///< EXT4 pin 12 Grey
+    .ledData = NOT_CONNECTED, ///< EXT4 pin 13 Violet WS2813C
+    .nfcFD = NOT_CONNECTED, ///< EXT4 pin 17 Orange NFC NT3H2111_2211 !Field detect, I2C address = 0x55
+    .imuInt1 = NOT_CONNECTED, ///< EXT4 pin 18 Red LIS2DH12 !INT2, I2C address = 0x19
+    .imuInt2 = NOT_CONNECTED, ///< EXT4 pin 19 Brown LIS2DH12 !INT1, I2C address = 0x19
     .weatherInt = NOT_CONNECTED // EXT4 pin 20 Black HDC2080 !INT, I2C address = 0x40
     // End of EXT4 specific
 };
@@ -450,11 +474,6 @@ const pins_t boardParticlePhoton2 =
 const pins_t boardParticlePhoton2_EXT3 = boardParticlePhoton2;
 
 /// @}
-
-///
-/// @brief Synonym for pins_t
-///
-#define Board pins_t
 
 #endif // hV_LIST_BOARDS_RELEASE
 

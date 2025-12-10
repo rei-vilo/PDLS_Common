@@ -4,9 +4,10 @@
 ///
 /// @details Based on highView technology
 ///
-/// @date 21 Nov 2025
-/// @version 1000
+/// @date 21 Dec 2025
+/// @version 1001
 ///
+/// @copyright (c) Pervasive Displays Inc., 2021-2025
 /// @copyright (c) Etigues, 2010-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
@@ -49,12 +50,15 @@
 /// @deprecated Removed synonyms for Wire (7.0.0)
 /// + hV_HAL_Wire_writeRead() is removed. Use hV_HAL_Wire_transfer() instead (7.0.0)
 ///
+/// @deprecated Removed hV_HAL_Serial_print() and hV_HAL_Serial_println() (10.0.0)
+/// + Use hV_HAL_Serial_printf() and hV_HAL_Serial_crlf() instead (10.0.0)
+///
 
 #ifndef hV_HAL_PERIPHERALS_RELEASE
 ///
 /// @brief Release
 ///
-#define hV_HAL_PERIPHERALS_RELEASE 1000
+#define hV_HAL_PERIPHERALS_RELEASE 1001
 
 ///
 /// @brief SDK library
@@ -310,6 +314,11 @@ uint8_t hV_HAL_Wire_transfer(uint8_t address, uint8_t * dataWrite, size_t sizeWr
 /// @name Log system
 /// @{
 ///
+
+///
+/// @brief Buffer size for log messages
+/// @detail Recommended 256 for Viewer, 128 otherwise
+#define LOG_TEXT_LENGTH 128
 
 ///
 /// @brief Log level messages

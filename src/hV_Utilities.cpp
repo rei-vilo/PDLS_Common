@@ -6,8 +6,6 @@
 // Project Pervasive Displays Library Suite
 // Based on highView technology
 //
-// Created by Rei Vilo, 01 Jun 2013
-//
 // Copyright (c) Pervasive Displays Inc., 2021-2025,
 // Copyright (c) Etigues, 2010-2025
 // Licence All rights reserved
@@ -35,6 +33,7 @@
 // Release 1000: Added support for UTF-16 strings
 // Release 1000: Added support for 16-bit fonts
 // Release 1000: Added UTF-16 characters traceability
+// Release 1001: Improved 16-bit font generation
 //
 
 // Library header

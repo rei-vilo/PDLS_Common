@@ -412,8 +412,8 @@ uint8_t hV_HAL_Wire_transfer(uint8_t address, uint8_t * dataWrite, size_t sizeWr
 //
 void hV_HAL_Serial_printf(const char * format, ...)
 {
-    char buffer[256];
-    memset(&buffer, 0x00, sizeof(buffer));
+    char buffer[LOG_TEXT_LENGTH] = {0x00};
+
     va_list args;
     va_start(args, format);
     vsnprintf(buffer, 255, format, args);
@@ -435,8 +435,13 @@ void hV_HAL_Serial_crlf()
 
 void hV_HAL_log(uint16_t level, const char * format, ...)
 {
-    char buffer[256] = {0x00};
-    // memset(&buffer, 0x00, sizeof(buffer));
+    // --- Levels
+    // #define LEVEL_CRITICAL 0x0001 ///< `*` Non-handled error, stop or exit
+    // #define LEVEL_INFO 0x0008 ///< `.` Information
+    // #define LEVEL_DEBUG 0x0010 ///< `-` Debug
+    // #define LEVEL_SYSTEM 0x0020 ///< `=` System
+
+    char buffer[LOG_TEXT_LENGTH] = {0x00};
 
     // Content
     char * frame = &buffer[strlen(buffer)];

@@ -18,9 +18,10 @@
 /// * 10. String object for basic edition
 /// * 11. Set storage mode, not implemented
 /// * 12. Set debug options, not implemented
+/// * 13. Select board, deprecated, see hV_List_Boards
 ///
-/// @date 21 Nov 2025
-/// @version 1000
+/// @date 21 Dec 2025
+/// @version 1001
 ///
 /// @copyright (c) Pervasive Displays Inc., 2021-2025
 /// @copyright (c) Etigues, 2010-2025
@@ -50,7 +51,7 @@
 ///
 /// @brief Release
 ///
-#define hV_LIST_OPTIONS_RELEASE 1000
+#define hV_LIST_OPTIONS_RELEASE 1001
 
 ///
 /// @name 1- List of supported Pervasive Displays screens
@@ -113,7 +114,7 @@
 /// @name 6- Use virtual object
 /// @details From hV_Screen_Virtual.h for extended compability
 /// @note Declare additional variables if USE_hV_SCREEN_SELF
-/// @n Virtual object requires ~1 kB bytes.
+/// @n Virtual object requires <1 kB bytes.
 /// * Basic edition: self option
 /// * Evaluation edition: virtual option
 /// * Commercial edition: self and virtual options
@@ -207,15 +208,9 @@
 /// * Viewer edition: EXT3
 ///
 /// @note Corresponding boards defined at hV_List_Boards.h
-///
-/// @{
-#define BOARD_EXT2 0x20 ///< EXT2 board
-#define BOARD_EXT3 0x30 ///< EXT3 and EXT3.1 boards
-#define BOARD_EXT4 0x40 ///< EXT4 board
-
 /// @deprecated Check pins_t.scope instead (10.0.0)
-// #define USE_EXT_BOARD BOARD_EXT3 ///< Selected board
-/// @}
+/// @see hV_List_Boards.h
+///
 
 #endif // hV_LIST_OPTIONS_RELEASE
 
