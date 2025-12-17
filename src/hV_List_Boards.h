@@ -129,7 +129,6 @@ struct pins_t
 #define BOARD_EXT4 0x40 ///< EXT4 board
 /// @}
 
-
 ///
 /// @name 2.1 Recommended boards for EXT3 and EXT3.1
 /// @{
