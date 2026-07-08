@@ -7,8 +7,8 @@
 ///
 /// * Edition: Advanced
 ///
-/// @date 21 Feb 2026
-/// @version 1003
+/// @date 21 Apr 2026
+/// @version 1005
 ///
 /// @copyright (c) Pervasive Displays Inc., 2021-2026
 /// @copyright (c) Etigues, 2010-2026
@@ -59,12 +59,12 @@
 ///
 /// @brief Library release number
 ///
-#define hV_BOARD_RELEASE 1003
+#define hV_BOARD_RELEASE 1005
 
 // Objects
 //
 ///
-/// @brief Class for Pervasive Displays EXT3, EXT3.1 and EXT3-Touch, EXT4 extension boards
+/// @brief Class for Pervasive Displays EXT3, EXT3.1 and EXT3-Touch, EXT3.2 and EXT4 extension boards
 /// @details Functions for board
 /// * GPIO
 /// * SPI for LCD and external Flash and SRAM memory
