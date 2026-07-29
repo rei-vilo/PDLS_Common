@@ -15,7 +15,7 @@ The **PDLS_Common** library provides a light hardware abstraction layer with C-l
 
 ## Documentation
 
-* [Knowledge Base](https://docs.pervasivedisplays.com/knowledge/)
+* [Knowledge Base](https://docs.pervasivedisplays.com/knowledge/) [![](https://img.shields.io/badge/-Knowledge_Base-orange)](https://docs.pervasivedisplays.com/knowledge/)
 
 ## Support
 
