@@ -39,7 +39,7 @@
 ///
 /// @brief Release
 ///
-#define hV_LIST_CONSTANTS_RELEASE 1000
+#define hV_LIST_CONSTANTS_RELEASE 1009
 
 ///
 /// @name Touch events
