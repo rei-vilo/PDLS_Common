@@ -5,8 +5,8 @@
 /// @details Project Pervasive Displays Library Suite
 /// @n Based on highView technology
 ///
-/// @date 21 Jul 2026
-/// @version 1008
+/// @date 21 Aug 2026
+/// @version 1009
 ///
 /// @copyright (c) Pervasive Displays Inc., 2021-2026
 /// @copyright (c) Etigues, 2010-2026
@@ -36,7 +36,7 @@
 ///
 /// @brief Library release number
 ///
-#define PDLS_COMMON_RELEASE 1008
+#define PDLS_COMMON_RELEASE 1009
 
 ///
 /// @brief Edition

@@ -5,8 +5,8 @@
 /// @details Project Pervasive Displays Library Suite
 /// @n Based on highView technology
 ///
-/// @date 21 Nov 2025
-/// @version 1000
+/// @date 21 Aug 2026
+/// @version 1009
 ///
 /// @copyright (c) Pervasive Displays Inc., 2021-2026
 /// @copyright (c) Etigues, 2010-2026
@@ -97,6 +97,7 @@
 /// @{
 ///
 #define SIZE_NONE 0x00 ///< Unknown
+#define SIZE_097 97 ///< 0.97"
 #define SIZE_150 150 ///< 1.50"
 #define SIZE_152 152 ///< 1.52"
 #define SIZE_154 154 ///< 1.54"
@@ -285,6 +286,7 @@
 /// @n Depth = 1
 /// @{
 ///
+#define frameSize_EPD_097 (uint32_t)(4992) ///< reference 097-KS-0E
 #define frameSize_EPD_150 (uint32_t)(10000) ///< reference 150-xS-0x
 #define frameSize_EPD_152 (uint32_t)(10000) ///< reference 152-xS-0x
 #define frameSize_EPD_154 (uint32_t)(5776) ///< reference 154-xS-0x
