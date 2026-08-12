@@ -179,14 +179,8 @@ void hV_HAL_SPI_end() {
 uint8_t hV_HAL_SPI_transfer(uint8_t data)
 {
     uint8_t rxData = 0;
-
-    SERCOM2_SPI_WriteRead(&data, 1, &rxData, 1);
-
-    while (SERCOM2_SPI_IsBusy())
-    {
-        SYS_Tasks();
-    }
-
+    SERCOM2_SPI_Write(&data, 1);
+    
     return rxData;
 }
 

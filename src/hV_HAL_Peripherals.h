@@ -161,7 +161,7 @@ void hV_HAL_GPIO_waitFor(PORT_PIN pin, uint8_t state);
 /// @{
 
 #define hV_HAL_delayMilliseconds(X) (delay_ms(X))
-#define hV_HAL_delayMicroseconds(X) (delay_ms(X))
+#define hV_HAL_delayMicroseconds(X) (delay_us(X))
 #define hV_HAL_getMilliseconds() (millis())
 /// @}
 
