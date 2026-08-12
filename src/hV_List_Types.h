@@ -31,6 +31,13 @@
 /// * Documentation
 /// @n All rights reserved
 ///
+#include <string>
+#include <stddef.h>                     // Defines NULL
+#include <stdbool.h>                    // Defines true
+#include <stdlib.h>                     // Defines EXIT_FAILURE
+#include "definitions.h"                // SYS function prototypes
+#include "functions.h"
+
 
 #ifndef hV_LIST_TYPES_RELEASE
 ///
@@ -71,9 +78,9 @@
 /// @brief Type for string
 /// @details Based on STRING_MODE selection
 ///
-#define STRING_TYPE String
-#define STRING_BYREF_TYPE String &
-#define STRING_CONST_TYPE String
 
+#define STRING_TYPE std::string
+#define STRING_BYREF_TYPE std::string &
+#define STRING_CONST_TYPE const std::string &
 #endif // hV_LIST_TYPES_RELEASE
 

@@ -62,32 +62,16 @@
 #define hV_HAL_PERIPHERALS_RELEASE 1001
 
 ///
-/// @brief SDK library
-/// @see References
-/// * Arduino SDK https://www.arduino.cc/reference/en/
-/// * Energia SDK https://energia.nu/reference/
-///
-#include <Arduino.h>
-
-// // Options
-// #include "hV_List_Options.h"
-//
-// #if (hV_LIST_OPTIONS_RELEASE < 1000)
-// #error Required hV_LIST_OPTIONS_ERELEASE 1000
-// #endif // hV_LIST_OPTIONS_RELEASE
-
-///
-/// @brief SDK other libraries
-///
-#include <SPI.h>
-#include <Wire.h>
-
-///
 /// @brief Other libraries
 ///
 #include <stdint.h>
 #include <stdio.h>
 #include <stdarg.h>
+#include <stddef.h>                     // Defines NULL
+#include <stdbool.h>                    // Defines true
+#include <stdlib.h>                     // Defines EXIT_FAILURE
+#include "definitions.h"                // SYS function prototypes
+#include "functions.h"
 
 ///
 /// @brief Serial port
@@ -131,19 +115,26 @@ void hV_HAL_exit(uint8_t code = RESULT_SUCCESS);
 
 ///
 /// @name GPIO
-/// @warning
-/// * Arduino: GPIO requires pin number, example 4
-/// * Mbed: GPIO requires pin name, example D4 or PB_5
-/// * Mbed: GPIO is created at call
-/// * Mbed: GPIO not suitable for interrupts
-/// * Viewer: For compatibility only, GPIO not implemented in Linux
-/// @{
-#define hV_HAL_GPIO_define(X, Y) (pinMode(X, Y))
-#define hV_HAL_GPIO_set(X) (digitalWrite(X, HIGH))
-#define hV_HAL_GPIO_clear(X) (digitalWrite(X, LOW))
-#define hV_HAL_GPIO_get(X) (digitalRead(X))
-#define hV_HAL_GPIO_write(X, Y) (digitalWrite(X, Y))
-#define hV_HAL_GPIO_read(X) (digitalRead(X))
+#define INPUT  0
+#define OUTPUT 1
+
+#define hV_HAL_GPIO_define(X, Y) \
+    ((Y) == INPUT ? PORT_PinInputEnable(X) : PORT_PinOutputEnable(X))
+
+#define hV_HAL_GPIO_set(X) \
+    PORT_PinSet(X)
+
+#define hV_HAL_GPIO_clear(X) \
+    PORT_PinClear(X)
+
+#define hV_HAL_GPIO_get(X) \
+    PORT_PinRead(X)
+
+#define hV_HAL_GPIO_write(X, Y) \
+    PORT_PinWrite(X, Y)
+
+#define hV_HAL_GPIO_read(X) \
+    PORT_PinRead(X)
 
 void hV_HAL_GPIO_begin(void);
 
@@ -160,7 +151,7 @@ void hV_HAL_GPIO_undefine(uint8_t pin);
 /// @param pin pin number or pin name according to SDK
 /// @param state HIGH or LOW
 ///
-void hV_HAL_GPIO_waitFor(uint8_t pin, uint8_t state);
+void hV_HAL_GPIO_waitFor(PORT_PIN pin, uint8_t state);
 
 /// @}
 
@@ -169,10 +160,55 @@ void hV_HAL_GPIO_waitFor(uint8_t pin, uint8_t state);
 /// @see https://www.arduino.cc/reference/en/#time
 /// @{
 
-#define hV_HAL_delayMilliseconds(X) (delay(X))
-#define hV_HAL_delayMicroseconds(X) (delayMicroseconds(X))
+#define hV_HAL_delayMilliseconds(X) (delay_ms(X))
+#define hV_HAL_delayMicroseconds(X) (delay_ms(X))
 #define hV_HAL_getMilliseconds() (millis())
 /// @}
+
+
+
+///
+/// @name 3-wire SPI
+/// @{
+///
+
+///
+/// @brief Configure 3-wire SPI
+/// @note Select default SCK as clock and MOSI as data (SDIO)
+///
+void hV_HAL_SPI3_begin();
+
+///
+/// @brief End 3-wire SPI
+/// @warning Some platforms require freeing the GPIOs used by 3-wire SPI before starting SPI.
+///
+void hV_HAL_SPI3_end();
+
+///
+/// @brief Set the 3-wire SPI pins
+/// @param pinClock clock, default = SCK
+/// @param pinData combined data, default = MOSI
+/// @note For manual configuration only
+/// @warning SCK and MOSI provided by Arduino SDK
+/// * Some boards require manual configuration
+///
+void hV_HAL_SPI3_define(uint8_t pinClock, uint8_t pinData);
+
+///
+/// @brief Read a single byte
+/// @return read byte
+/// @note Configure the clock pin as output and data pin as input.
+/// @warning /CS to be managed externally.
+///
+uint8_t hV_HAL_SPI3_read();
+
+///
+/// @brief Write a single byte
+/// @param data byte
+/// @note Configure the clock and data pins as output.
+/// @warning /CS to be managed externally.
+///
+void hV_HAL_SPI3_write(uint8_t value);
 
 ///
 /// @name Serial console
@@ -234,91 +270,6 @@ uint8_t hV_HAL_SPI_transfer(uint8_t data);
 /// * Viewer: For compatibility only, not implemented in Linux
 /// @note hV_HAL_SPI3_begin() sets the pins for 3-wire SPI.
 /// @{
-
-#if defined(ENERGIA)
-
-#define SCK 7
-#define MOSI 15
-
-#endif // ENERGIA 
-
-///
-/// @name 3-wire SPI
-/// @{
-///
-
-///
-/// @brief Configure 3-wire SPI
-/// @note Select default SCK as clock and MOSI as data (SDIO)
-///
-void hV_HAL_SPI3_begin();
-
-///
-/// @brief End 3-wire SPI
-/// @warning Some platforms require freeing the GPIOs used by 3-wire SPI before starting SPI.
-///
-void hV_HAL_SPI3_end();
-
-///
-/// @brief Set the 3-wire SPI pins
-/// @param pinClock clock, default = SCK
-/// @param pinData combined data, default = MOSI
-/// @note For manual configuration only
-/// @warning SCK and MOSI provided by Arduino SDK
-/// * Some boards require manual configuration
-///
-void hV_HAL_SPI3_define(uint8_t pinClock = SCK, uint8_t pinData = MOSI);
-
-///
-/// @brief Read a single byte
-/// @return read byte
-/// @note Configure the clock pin as output and data pin as input.
-/// @warning /CS to be managed externally.
-///
-uint8_t hV_HAL_SPI3_read();
-
-///
-/// @brief Write a single byte
-/// @param data byte
-/// @note Configure the clock and data pins as output.
-/// @warning /CS to be managed externally.
-///
-void hV_HAL_SPI3_write(uint8_t value);
-
-/// @}
-
-///
-/// @name Wire bus
-///
-/// @{
-
-///
-/// @brief Configure and start Wire bus
-/// @note Master mode only
-/// @note With check for unique initialisation
-///
-void hV_HAL_Wire_begin();
-
-///
-/// @brief End Wire bus
-/// @note With check for unique deinitialisation
-///
-void hV_HAL_Wire_end();
-
-///
-/// @brief Combined write and read with optional delay
-///
-/// @param[in] address I2C device address
-/// @param[in] dataWrite buffer to write
-/// @param[in] sizeWrite number of bytes
-/// @param[out] dataRead buffer to read
-/// @param[in] sizeRead number of bytes
-/// @param[in] us delay in microseconds, default = 0 = no delay
-/// @return uint8_t transmission status, `RESULT_SUCCESS` = `0` or `RESULT_ERROR` = `1`
-/// @note If sizeRead = 0, no read performed
-/// @warning No check for previous initialisation
-///
-uint8_t hV_HAL_Wire_transfer(uint8_t address, uint8_t * dataWrite, size_t sizeWrite, uint8_t * dataRead = 0, size_t sizeRead = 0, uint32_t us = 0);
 
 /// @}
 

@@ -40,26 +40,30 @@
 #include "hV_Utilities.h"
 #include "stdarg.h"
 #include "stdio.h"
+#include <stddef.h>                     // Defines NULL
+#include <stdbool.h>                    // Defines true
+#include <stdlib.h>                     // Defines EXIT_FAILURE
+#include "definitions.h"                // SYS function prototypes
+#include "functions.h"
+#include <cstring>
 
 // Buffers for formatString
 char bufferIn[BUFFER_LENGTH];
 char bufferOut[BUFFER_LENGTH];
 
-STRING_TYPE formatString(const char * format, ...)
+STRING_TYPE formatString(const char *format, ...)
 {
-    // --- Option 1
     char bufferWork[BUFFER_LENGTH] = {0};
-    // memset(&bufferWork, 0x00, sizeof(bufferOut));
 
     va_list args;
     va_start(args, format);
-    vsnprintf(bufferWork, (BUFFER_LENGTH - 1), format, args);
+    vsnprintf(bufferWork, sizeof(bufferWork), format, args);
     va_end(args);
 
-    memset(&bufferOut, 0x00, sizeof(bufferOut));
+    memset(bufferOut, 0, sizeof(bufferOut));
     memcpy(bufferOut, bufferWork, strlen(bufferWork));
 
-    return String(bufferOut);
+    return std::string(bufferOut);
 }
 
 STRING_TYPE utf2iso(STRING_TYPE s)
@@ -84,15 +88,15 @@ STRING_TYPE utf2iso(STRING_TYPE s)
 //
 // --- End of Viewer edition
 //
-
-uint16_t utf8to16(STRING_CONST_TYPE inUTF8, STRING16_BYREF_TYPE outUTF16, uint8_t limit)
+uint16_t utf8to16(
+    STRING_CONST_TYPE inUTF8,
+    STRING16_BYREF_TYPE outUTF16,
+    uint8_t limit)
 {
     uint16_t char16;
     uint16_t i16 = 0;
 
-    memset(bufferIn, 0x00, sizeof(bufferIn));
-    inUTF8.toCharArray(bufferIn, BUFFER_LENGTH);
-    const char * _work8 = bufferIn;
+    const char *_work8 = inUTF8.c_str();
 
     if (strlen(_work8) == 0)
     {
@@ -102,10 +106,10 @@ uint16_t utf8to16(STRING_CONST_TYPE inUTF8, STRING16_BYREF_TYPE outUTF16, uint8_
 
     bool flag = true;
 
-    while ((*_work8 != 0) and flag)
+    while ((*_work8 != 0) && flag)
     {
-        // unsigned char char8 = static_cast<unsigned char>(*_work8);
-        uint8_t char8 = (*_work8);
+        uint8_t char8 = static_cast<uint8_t>(*_work8);
+
         if (char8 <= 0x7f)
         {
             char16 = char8;
@@ -126,26 +130,28 @@ uint16_t utf8to16(STRING_CONST_TYPE inUTF8, STRING16_BYREF_TYPE outUTF16, uint8_
         {
             char16 = char8 & 0x07;
         }
+
         ++_work8;
 
-        if (((*_work8 & 0xc0) != 0x80) and (char16 <= 0xffff))
+        if (((*_work8 & 0xc0) != 0x80) && (char16 <= 0xffff))
         {
-            // Checks specific to Basic edition
             if (char16 == 0x20ac)
             {
-                char16 = 0x80; // Specific Font_Terminal code
+                char16 = 0x80;
             }
             else if (char16 > 0x00ff)
             {
-                char16 = 0xb7; // Code for non-supported characters
+                char16 = 0xb7;
             }
+
             outUTF16[i16++] = char16;
         }
     }
-    outUTF16[i16] = 0x0000; // Null-terminate the output array
+
+    outUTF16[i16] = 0x0000;
+
     return i16;
 }
-
 //
 // --- Viewer edition only
 //

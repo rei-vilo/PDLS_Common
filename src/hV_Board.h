@@ -148,7 +148,7 @@ class hV_Board
     /// @note Signal is busy until reaching state
     /// @param state to reach `HIGH` = default, `LOW`
     ///
-    void b_waitBusy(bool state = HIGH);
+    void b_waitBusy(bool state = true);
 
     ///
     /// @brief Send a command

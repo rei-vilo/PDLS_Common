@@ -27,6 +27,8 @@
 
 // Library header
 #include "hV_Board.h"
+#include "hV_HAL_Peripherals.h"
+
 
 hV_Board::hV_Board()
 {
@@ -135,7 +137,7 @@ void hV_Board::b_resume()
         {
             if (b_pin.button != NOT_CONNECTED) // generic
             {
-                hV_HAL_GPIO_define(b_pin.button, INPUT_PULLUP);
+                //hV_HAL_GPIO_define(b_pin.button, INPUT_PULLUP);
             }
 
             if (b_pin.ledData != NOT_CONNECTED) // generic
