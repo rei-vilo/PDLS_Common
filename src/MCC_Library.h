@@ -12,10 +12,6 @@
 extern "C" {
 #endif
 
-void delay_ms(uint32_t ms);
-uint32_t millis(void);
-void delay_us(uint32_t us);
-
 
 enum Level {
   LOW = 0,

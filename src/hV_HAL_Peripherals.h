@@ -160,9 +160,9 @@ void hV_HAL_GPIO_waitFor(PORT_PIN pin, uint8_t state);
 /// @see https://www.arduino.cc/reference/en/#time
 /// @{
 
-#define hV_HAL_delayMilliseconds(X) (delay_ms(X))
-#define hV_HAL_delayMicroseconds(X) (delay_us(X))
-#define hV_HAL_getMilliseconds() (millis())
+#define hV_HAL_delayMilliseconds(X) (SYSTICK_DelayMs(X))
+#define hV_HAL_delayMicroseconds(X) (SYSTICK_DelayUs(X))
+#define hV_HAL_getMilliseconds() (SYSTICK_TimerPeriodGet())
 /// @}
 
 
