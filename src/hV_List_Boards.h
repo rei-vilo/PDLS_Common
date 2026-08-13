@@ -50,7 +50,7 @@
 #include <stdbool.h>                    // Defines true
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "definitions.h"                // SYS function prototypes
-#include "functions.h"
+#include "MCC_Library.h"
 
 #if (hV_LIST_OPTIONS_RELEASE < 1000)
 #error Required hV_LIST_OPTIONS_ERELEASE 1000

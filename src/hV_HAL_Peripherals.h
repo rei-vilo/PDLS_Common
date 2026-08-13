@@ -71,7 +71,7 @@
 #include <stdbool.h>                    // Defines true
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "definitions.h"                // SYS function prototypes
-#include "functions.h"
+#include "MCC_Library.h"
 
 ///
 /// @brief Serial port

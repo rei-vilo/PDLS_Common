@@ -44,7 +44,7 @@
 #include <stdbool.h>                    // Defines true
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "definitions.h"                // SYS function prototypes
-#include "functions.h"
+#include "MCC_Library.h"
 
 //
 // === General section
@@ -126,22 +126,25 @@ void hV_HAL_SPI3_define(uint8_t pinClock, uint8_t pinData)
 
 uint8_t hV_HAL_SPI3_read()
 {
+   
+
     uint8_t txData = 0xFF;
     uint8_t rxData = 0;
-
+#if MICROCONTROLLER == MCU_ATSAMC21E18A
     SERCOM2_SPI_WriteRead(&txData, 1, &rxData, 1);
 
     while (SERCOM2_SPI_IsBusy())
     {
         SYS_Tasks();
     }
-
+#endif
     return rxData;
 }
 
 void hV_HAL_SPI3_write(uint8_t value)
 {
     uint8_t rxData = 0;
+#if MICROCONTROLLER == MCU_ATSAMC21E18A
 
     SERCOM2_SPI_WriteRead(&value, 1, &rxData, 1);
 
@@ -149,6 +152,7 @@ void hV_HAL_SPI3_write(uint8_t value)
     {
         SYS_Tasks();
     }
+#endif
 }
 //
 // === End of 3-wire SPI section
@@ -170,7 +174,7 @@ void hV_HAL_SPI_begin(uint32_t speed) {
 
 void hV_HAL_SPI_end() {
     if (flagSPI != false) {
-        //SPI.end();
+        //Not Necessary,function left for library dependencies
         flagSPI = false;
     }
 }
@@ -179,8 +183,10 @@ void hV_HAL_SPI_end() {
 uint8_t hV_HAL_SPI_transfer(uint8_t data)
 {
     uint8_t rxData = 0;
-    SERCOM2_SPI_Write(&data, 1);
     
+#if MICROCONTROLLER == MCU_ATSAMC21E18A
+    SERCOM2_SPI_Write(&data, 1);
+#endif
     return rxData;
 }
 
