@@ -57,10 +57,12 @@
 ///
 #define hV_LIST_BOARDS_RELEASE 1005
 
+#ifndef NOT_CONNECTED
 ///
 /// @brief Not connected pin
 ///
 #define NOT_CONNECTED (uint8_t)0xff
+#endif // NOT_CONNECTED
 
 ///
 /// @brief EXT board configuration structure
