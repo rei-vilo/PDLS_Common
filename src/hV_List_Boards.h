@@ -14,8 +14,8 @@
 ///     * 2.5 Recommended boards for Viewer
 ///     * 2.6 Deprecated boards
 ///
-/// @date 21 Apr 2026
-/// @version 1005
+/// @date 21 Sep 2026
+/// @version 1010
 ///
 /// @copyright (c) Pervasive Displays Inc., 2021-2026
 /// @copyright (c) Etigues, 2010-2026
@@ -55,7 +55,7 @@
 ///
 /// @brief Release
 ///
-#define hV_LIST_BOARDS_RELEASE 1005
+#define hV_LIST_BOARDS_RELEASE 1010
 
 #ifndef NOT_CONNECTED
 ///
