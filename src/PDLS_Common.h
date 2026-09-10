@@ -59,7 +59,7 @@
 
 #if (hV_CONFIGURATION_RELEASE < 1000)
 #error Required hV_CONFIGURATION_RELEASE 1000
-#endif // hV_HAL_PERIPHERALS_RELEASE
+#endif // hV_CONFIGURATION_RELEASE
 
 // Utilities
 #include "hV_Utilities.h"
