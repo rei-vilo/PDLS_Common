@@ -5,8 +5,8 @@
 /// @details Project Pervasive Displays Library Suite
 /// @n Based on highView technology
 ///
-/// @date 21 Dec 2025
-/// @version 1001
+/// @date 21 Oct 2026
+/// @version 1011
 ///
 /// @copyright (c) Pervasive Displays Inc., 2021-2026
 /// @copyright (c) Etigues, 2010-2026
@@ -59,7 +59,7 @@
 ///
 /// @brief Release
 ///
-#define hV_HAL_PERIPHERALS_RELEASE 1001
+#define hV_HAL_PERIPHERALS_RELEASE 1011
 
 ///
 /// @brief SDK library
@@ -313,7 +313,7 @@ void hV_HAL_Wire_end();
 /// @param[in] sizeWrite number of bytes
 /// @param[out] dataRead buffer to read
 /// @param[in] sizeRead number of bytes
-/// @param[in] us delay in microseconds, default = 0 = no delay
+/// @param[in] us delay in microseconds, default = `0` = no delay
 /// @return uint8_t transmission status, `RESULT_SUCCESS` = `0` or `RESULT_ERROR` = `1`
 /// @note If sizeRead = 0, no read performed
 /// @warning No check for previous initialisation
@@ -349,6 +349,11 @@ uint8_t hV_HAL_Wire_transfer(uint8_t address, uint8_t * dataWrite, size_t sizeWr
 /// @note With final CR-LF
 ///
 void hV_HAL_log(uint16_t level, const char * format, ...);
+
+///
+/// @brief Send debug CR-LF to console
+///
+void hV_HAL_log_crlf();
 
 /// @}
 

@@ -87,7 +87,7 @@ STRING_TYPE utf2iso(STRING_TYPE s)
 
 uint16_t utf8to16(STRING_CONST_TYPE inUTF8, STRING16_BYREF_TYPE outUTF16, uint8_t limit)
 {
-    uint16_t char16;
+    uint16_t char16 = 0;
     uint16_t i16 = 0;
 
     memset(bufferIn, 0x00, sizeof(bufferIn));

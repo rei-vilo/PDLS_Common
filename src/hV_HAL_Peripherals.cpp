@@ -8,6 +8,7 @@
 //
 // Created by Rei Vilo, 08 Jan 2024
 //
+// Copyright (c) Pervasive Displays Inc., 2021-2026,
 // Copyright (c) Etigues, 2010-2026
 // Licence All rights reserved
 // For exclusive use with Pervasive Displays screens
@@ -36,6 +37,7 @@
 // Release 922: Ported to C
 // Release 1000: Updated to PDLS release 1000
 // Release 1001: Added delay on I²C write and read transfer
+// Release 1011: Improved trace granularity
 //
 
 // Library header
@@ -82,7 +84,7 @@ h_pinSPI3_t h_pinSPI3;
 void hV_HAL_begin()
 {
     hV_HAL_Serial.begin(115200);
-    hV_HAL_Serial_crlf();
+    hV_HAL_log_crlf();
     hV_HAL_log(LEVEL_INFO, "Begin");
 
     // #if defined(ARDUINO_XIAO_ESP32C3)
@@ -114,7 +116,7 @@ void hV_HAL_begin()
 void hV_HAL_exit(uint8_t code)
 {
     hV_HAL_log(LEVEL_INFO, "Exit with code %i", code);
-    hV_HAL_Serial_crlf();
+    hV_HAL_log_crlf();
     while (true)
     {
         hV_HAL_delayMilliseconds(1000);
@@ -424,6 +426,11 @@ void hV_HAL_Serial_printf(const char * format, ...)
 }
 
 void hV_HAL_Serial_crlf()
+{
+    hV_HAL_Serial.println();
+}
+
+void hV_HAL_log_crlf()
 {
     hV_HAL_Serial.println();
 }
