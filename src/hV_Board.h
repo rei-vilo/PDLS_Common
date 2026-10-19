@@ -7,8 +7,8 @@
 ///
 /// * Edition: Advanced
 ///
-/// @date 21 Apr 2026
-/// @version 1005
+/// @date 21 Oct 2026
+/// @version 1011
 ///
 /// @copyright (c) Pervasive Displays Inc., 2021-2026
 /// @copyright (c) Etigues, 2010-2026
@@ -37,8 +37,8 @@
 // SDK
 #include "hV_HAL_Peripherals.h"
 
-#if (hV_HAL_PERIPHERALS_RELEASE < 1000)
-#error Required hV_HAL_PERIPHERALS_RELEASE 1000
+#if (hV_HAL_PERIPHERALS_RELEASE < 1011)
+#error Required hV_HAL_PERIPHERALS_RELEASE 1011
 #endif // hV_HAL_PERIPHERALS_RELEASE
 
 // Boards
@@ -59,7 +59,7 @@
 ///
 /// @brief Library release number
 ///
-#define hV_BOARD_RELEASE 1005
+#define hV_BOARD_RELEASE 1011
 
 // Objects
 //

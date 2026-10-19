@@ -23,6 +23,7 @@
 // Release 1000: Unified boards definition
 // Release 1002: Added extra delays before commands
 // Release 1003: Added support for BWRY large screens
+// Release 1011: Improved trace granularity
 //
 
 // Library header
@@ -66,7 +67,7 @@ void hV_Board::b_suspend()
         // Optional power circuit
         if (b_pin.panelPower != NOT_CONNECTED) // generic
         {
-            hV_HAL_GPIO_clear(b_pin.panelPower);
+            hV_HAL_GPIO_clear(b_pin.panelPower); // should be kept defined
         }
         b_fsmPowerScreen &= ~FSM_GPIO_MASK;
     }

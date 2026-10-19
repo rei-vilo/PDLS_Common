@@ -114,7 +114,7 @@
 /// @name 6- Use virtual object
 /// @details From hV_Screen_Virtual.h for extended compability
 /// @note Declare additional variables if USE_hV_SCREEN_SELF
-/// @n Virtual object requires <1 kB bytes.
+/// @n Virtual object requires ~1 kB bytes.
 /// * Basic edition: self option
 /// * Evaluation edition: virtual option
 /// * Commercial edition: self and virtual options

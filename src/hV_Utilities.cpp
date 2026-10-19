@@ -34,6 +34,7 @@
 // Release 1000: Added support for 16-bit fonts
 // Release 1000: Added UTF-16 characters traceability
 // Release 1001: Improved 16-bit font generation
+// Release 1011: Improved trace granularity
 //
 
 // Library header
