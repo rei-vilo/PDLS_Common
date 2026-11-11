@@ -35,6 +35,7 @@
 // Release 1000: Added UTF-16 characters traceability
 // Release 1001: Improved 16-bit font generation
 // Release 1011: Improved trace granularity
+// Release 1012: Improved GridXY class
 //
 
 // Library header
@@ -173,6 +174,8 @@ GridXY::GridXY()
 
 void GridXY::define(uint16_t x0, uint16_t y0, uint16_t dx, uint16_t dy, uint16_t nX, uint16_t nY, bool flagAdjust)
 {
+    _nX = nX;
+    _nY = nY;
     _x0 = x0;
     _y0 = y0;
     _dx = dx / nX;
@@ -203,4 +206,14 @@ uint16_t GridXY::x(uint16_t i)
 uint16_t GridXY::y(uint16_t i)
 {
     return (_y0 + i * _dy);
+}
+
+uint8_t GridXY::nX()
+{
+    return _nX;
+}
+
+uint8_t GridXY::nY()
+{
+    return _nY;
 }

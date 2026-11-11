@@ -5,8 +5,8 @@
 /// @details Project Pervasive Displays Library Suite
 /// @n Based on highView technology
 ///
-/// @date 21 Oct 2026
-/// @version 1011
+/// @date 21 Nov 2026
+/// @version 1012
 ///
 /// @copyright (c) Pervasive Displays Inc., 2021-2026
 /// @copyright (c) Etigues, 2010-2026
@@ -64,7 +64,7 @@
 ///
 /// @brief Library release number
 ///
-#define hV_UTILITIES_RELEASE 1011
+#define hV_UTILITIES_RELEASE 1012
 
 ///
 /// @name Orientation constants
@@ -226,9 +226,22 @@ class GridXY
     ///
     uint16_t y(uint16_t i = 0);
 
+    ///
+    /// @brief Get number of divisions, x-axis
+    /// @return number of divisions
+    ///
+    uint8_t nX();
+
+    ///
+    /// @brief Get number of divisions, y-axis
+    /// @return number of divisions
+    ///
+    uint8_t nY();
+
   private:
     uint16_t _x0, _y0; ///< origin coordinates
     uint16_t _dx, _dy; ///< size of the division
+    uint8_t _nX, _nY; ///< number of divisions
 };
 
 //
